@@ -27,10 +27,11 @@
 > 🔗 **API 服务地址**：https://apipro.maynor1024.live/
 
 **支持的 AI 服务：**
-- ✅ **Claude Code** - Anthropic 官方编程助手
-- ✅ **Codex** - OpenAI 代码生成模型
-- ✅ **GPT-4** - OpenAI 最强大模型
-- ✅ **Claude 3.5** - Anthropic 最新模型
+- ✅ **Claude Code** - Anthropic 官方编程助手（内置 Claude Opus 4.6）
+- ✅ **Claude Opus 4.6** - Anthropic 最新旗舰模型
+- ✅ **Claude Sonnet 4.6** - Anthropic 最佳编程模型
+- ✅ **GPT-5.4** - OpenAI 最新一代推理模型
+- ✅ **o3** - OpenAI 高级推理模型
 
 **服务优势：**
 - 🌐 **国内可用** - 无需科学上网，稳定访问
