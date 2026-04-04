@@ -81,6 +81,11 @@ export function generateChapterSidebar(locale: string): SidebarItem[] {
       zh: '第五部分：企业级应用与最佳实践 ⭐',
       tw: '第五部分：企業級應用與最佳實踐 ⭐',
       en: 'Part 5: Enterprise Applications & Best Practices ⭐'
+    },
+    6: {
+      zh: '第六部分：高级能力与多 Agent 协作 ⭐',
+      tw: '第六部分：高級能力與多 Agent 協作 ⭐',
+      en: 'Part 6: Advanced Capabilities & Multi-Agent Collaboration ⭐'
     }
   }
 
@@ -101,7 +106,7 @@ export function generateChapterSidebar(locale: string): SidebarItem[] {
       sidebar.push({
         text: sectionTitle,
         items: sections.get(section)!,
-        collapsed: section !== 5 // 第5部分默认展开
+        collapsed: section !== 5 && section !== 6 // 第5、6部分默认展开
       })
     })
 

@@ -64,6 +64,14 @@
 - [24. 监控与可观测性](./24-monitoring-observability.md) - OpenTelemetry、Metrics、Logs、Traces
 - [25. CI/CD 集成](./25-ci-cd-integration.md) - GitHub Actions、GitLab CI、Jenkins
 
+### 第六部分：高级能力与多 Agent 协作 ⭐
+**新增章节**：探索 Claude Code 的高级交互能力和多 Agent 协作模式。
+
+- [26. Computer Use（屏幕操作）](./26-computer-use.md) - 屏幕识别、GUI 自动化、端到端测试
+- [27. Voice Mode（语音模式）](./27-voice-mode.md) - 语音交互、键盘配合、多语言支持
+- [28. 多 Agent 协作](./28-multi-agent-collaboration.md) - Worktrees、Agent Teams、Coordinator Mode
+- [29. 高级命令与反模式](./29-advanced-commands.md) - /btw、/compact、Slash Commands、反模式
+
 ## 🌟 推荐学习路径
 
 ### 初学者路径
