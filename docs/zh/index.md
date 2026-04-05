@@ -10,10 +10,10 @@ hero:
     alt: Claude Code
   actions:
     - theme: brand
-      text: 🚀 开始学习
-      link: /zh/articles/001_1.1 Claude Code是什么
+      text: 🎓 课程式学习（29章）
+      link: /zh/chapters/
     - theme: alt
-      text: 📚 查看教程目录
+      text: 📖 文章式学习（212+篇）
       link: /zh/articles/
     - theme: alt
       text: 🌐 English
@@ -39,6 +39,33 @@ features:
     title: 完全开源免费
     details: 所有教程内容完全开源，持续更新，欢迎贡献和反馈，让我们共同打造最好的中文 Claude Code 教程
 ---
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 50px 0;">
+  <a href="/zh/chapters/" style="text-decoration: none;">
+    <div style="background: #f6f8fa; padding: 30px; border-radius: 12px; border: 2px solid #159957; transition: transform 0.2s, box-shadow 0.2s;">
+      <div style="font-size: 2.5em; margin-bottom: 15px;">🎓</div>
+      <h3 style="margin-bottom: 12px; color: #159957;">课程式学习</h3>
+      <p style="color: #555; margin-bottom: 15px;">29 个结构化章节，从入门到企业级应用，循序渐进系统掌握 Claude Code</p>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+        <span style="background: rgba(21,153,87,0.1); color: #159957; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">29 章节</span>
+        <span style="background: rgba(21,153,87,0.1); color: #159957; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">系统学习</span>
+        <span style="background: rgba(21,153,87,0.1); color: #159957; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">实战导向</span>
+      </div>
+    </div>
+  </a>
+  <a href="/zh/articles/" style="text-decoration: none;">
+    <div style="background: #f6f8fa; padding: 30px; border-radius: 12px; border: 2px solid #155799; transition: transform 0.2s, box-shadow 0.2s;">
+      <div style="font-size: 2.5em; margin-bottom: 15px;">📖</div>
+      <h3 style="margin-bottom: 12px; color: #155799;">文章式学习</h3>
+      <p style="color: #555; margin-bottom: 15px;">212+ 篇详细文章，按主题分类，支持全文搜索，快速查阅特定知识点</p>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+        <span style="background: rgba(21,89,153,0.1); color: #155799; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">212+ 篇</span>
+        <span style="background: rgba(21,89,153,0.1); color: #155799; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">全文搜索</span>
+        <span style="background: rgba(21,89,153,0.1); color: #155799; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">快速查阅</span>
+      </div>
+    </div>
+  </a>
+</div>
 
 <div style="background: linear-gradient(135deg, #155799 0%, #159957 100%); padding: 40px 20px; border-radius: 12px; margin: 60px 0; text-align: center;">
   <h2 style="color: white; font-size: 2em; margin-bottom: 20px;">🎉 MaynorAI API 服务 - 国内可用，无需科学上网</h2>
@@ -236,10 +263,15 @@ features:
 <div style="text-align: center; margin: 60px 0;">
   <div style="font-size: 4em; margin-bottom: 20px;">🚀</div>
   <h2 style="font-size: 2em; margin-bottom: 20px;">准备好开始你的 AI 编程之旅了吗？</h2>
-  <p style="font-size: 1.2em; color: #666; margin-bottom: 30px;">212+ 篇精选文章等你来探索</p>
-  <a href="/zh/articles/001_1.1 Claude Code是什么" style="display: inline-block; background: linear-gradient(120deg, #155799, #159957); color: white; padding: 18px 50px; border-radius: 30px; font-size: 1.3em; font-weight: bold; text-decoration: none; box-shadow: 0 4px 20px rgba(21, 89, 153, 0.3);">
-    🎓 立即开始学习
-  </a>
+  <p style="font-size: 1.2em; color: #666; margin-bottom: 30px;">29 个课程章节 + 212+ 篇精选文章，两��方式任你选择</p>
+  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="/zh/chapters/" style="display: inline-block; background: linear-gradient(120deg, #159957, #38f9d7); color: white; padding: 18px 50px; border-radius: 30px; font-size: 1.2em; font-weight: bold; text-decoration: none; box-shadow: 0 4px 20px rgba(21, 153, 87, 0.3);">
+      🎓 课程式学习
+    </a>
+    <a href="/zh/articles/" style="display: inline-block; background: linear-gradient(120deg, #155799, #1e6bb8); color: white; padding: 18px 50px; border-radius: 30px; font-size: 1.2em; font-weight: bold; text-decoration: none; box-shadow: 0 4px 20px rgba(21, 89, 153, 0.3);">
+      📖 文章式学习
+    </a>
+  </div>
 </div>
 
 ---
