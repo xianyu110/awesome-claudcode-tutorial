@@ -245,7 +245,7 @@ features:
 3. **提交 PR 📝**，分享你的贡献
 4. **加入讨论 💬**，参与社区建设
 
-访问 [GitHub 仓库](https://github.com/yourusername/claudecode-tutorial) 开始贡献
+访问 [GitHub 仓库](https://github.com/xianyu110/awesome-claudcode-tutorial) 开始贡献
 
 ## 📄 许可协议
 

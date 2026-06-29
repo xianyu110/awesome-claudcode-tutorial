@@ -33,7 +33,7 @@ Both versions contain all 207 comprehensive articles covering:
 
 We welcome contributions! If you'd like to help translate the tutorial:
 
-1. Visit our [GitHub Repository](https://github.com/xianyu110/claudecode-tutorial)
+1. Visit our [GitHub Repository](https://github.com/xianyu110/awesome-claudcode-tutorial)
 2. Check existing translations
 3. Submit Pull Requests for new translations
 

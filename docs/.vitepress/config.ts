@@ -41,7 +41,7 @@ export default defineConfig({
       { text: '首页', link: '/zh/' },
       { text: '文章教程', link: '/zh/articles/' },
       { text: '课程章节', link: '/zh/chapters/' },
-      { text: 'GitHub', link: 'https://github.com/xianyu110/claudecode-tutorial' }
+      { text: 'GitHub', link: 'https://github.com/xianyu110/awesome-claudcode-tutorial' }
     ],
 
     // 侧边栏 - 将由脚本自动生成
@@ -56,7 +56,7 @@ export default defineConfig({
 
     // 社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/xianyu110/claudecode-tutorial' }
+      { icon: 'github', link: 'https://github.com/xianyu110/awesome-claudcode-tutorial' }
     ],
 
     // 页脚
@@ -124,7 +124,7 @@ export default defineConfig({
 
     // 编辑链接
     editLink: {
-      pattern: 'https://github.com/xianyu110/claudecode-tutorial/edit/main/docs/:path',
+      pattern: 'https://github.com/xianyu110/awesome-claudcode-tutorial/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页面'
     },
 
@@ -168,7 +168,7 @@ export default defineConfig({
           { text: '首页', link: '/zh/' },
           { text: '文章教程', link: '/zh/articles/' },
           { text: '课程章节', link: '/zh/chapters/' },
-          { text: 'GitHub', link: 'https://github.com/xianyu110/claudecode-tutorial' }
+          { text: 'GitHub', link: 'https://github.com/xianyu110/awesome-claudcode-tutorial' }
         ],
         sidebar: {
           '/zh/articles/': generateSidebar('zh'),
@@ -185,14 +185,14 @@ export default defineConfig({
           { text: '首頁', link: '/tw/' },
           { text: '文章教程', link: '/tw/articles/' },
           { text: '課程章節', link: '/tw/chapters/' },
-          { text: 'GitHub', link: 'https://github.com/xianyu110/claudecode-tutorial' }
+          { text: 'GitHub', link: 'https://github.com/xianyu110/awesome-claudcode-tutorial' }
         ],
         sidebar: {
           '/tw/articles/': generateSidebar('tw'),
           '/tw/chapters/': generateChapterSidebar('tw')
         },
         editLink: {
-          pattern: 'https://github.com/xianyu110/claudecode-tutorial/edit/main/docs/:path',
+          pattern: 'https://github.com/xianyu110/awesome-claudcode-tutorial/edit/main/docs/:path',
           text: '在 GitHub 上編輯此頁面'
         },
         lastUpdated: {
@@ -221,14 +221,14 @@ export default defineConfig({
           { text: 'Home', link: '/en/' },
           { text: 'Article Tutorial', link: '/en/articles/' },
           { text: 'Chapters', link: '/en/chapters/' },
-          { text: 'GitHub', link: 'https://github.com/xianyu110/claudecode-tutorial' }
+          { text: 'GitHub', link: 'https://github.com/xianyu110/awesome-claudcode-tutorial' }
         ],
         sidebar: {
           '/en/articles/': generateSidebar('en'),
           '/en/chapters/': generateChapterSidebar('en')
         },
         editLink: {
-          pattern: 'https://github.com/xianyu110/claudecode-tutorial/edit/main/docs/:path',
+          pattern: 'https://github.com/xianyu110/awesome-claudcode-tutorial/edit/main/docs/:path',
           text: 'Edit this page on GitHub'
         },
         lastUpdated: {

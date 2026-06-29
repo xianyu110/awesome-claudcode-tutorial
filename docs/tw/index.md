@@ -218,7 +218,7 @@ features:
 3. **提交 PR 📝**，分享你的貢獻
 4. **加入討論 💬**，參與社群建設
 
-訪問 [GitHub 倉庫](https://github.com/yourusername/claudecode-tutorial) 開始貢獻
+訪問 [GitHub 倉庫](https://github.com/xianyu110/awesome-claudcode-tutorial) 開始貢獻
 
 ## 📄 許可協議
 

@@ -218,7 +218,7 @@ features:
 3. **Submit PR 📝**, share your contributions
 4. **Join Discussions 💬**, participate in community building
 
-Visit [GitHub Repository](https://github.com/yourusername/claudecode-tutorial) to start contributing
+Visit [GitHub Repository](https://github.com/xianyu110/awesome-claudcode-tutorial) to start contributing
 
 ## 📄 License
 
