@@ -249,6 +249,8 @@ cd awesome-claudcode-tutorial
 - [Claude Code 国内使用指南](https://github.com/claude-code-chinese/claude-code-guide)
 - [B站实战教程](https://www.bilibili.com/video/BV1KzYQzWEPx/)
 
+- **[Context Kit](https://github.com/JDDavenport/context-kit)** — 4 Markdown 模板 + 5 Claude Code 技能，解决 AI 会话上下文丢失问题。一行命令安装，MIT 开源。
+
 ### API 服务
 - **MaynorAI API服务**：https://apipro.maynor1024.live/ - 国内直连，稳定可靠
 - **MaynorAI导航**：https://link3.cc/maynorai
