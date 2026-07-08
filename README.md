@@ -270,3 +270,6 @@ cd awesome-claudcode-tutorial
     <sub>持续更新中 | 由社区共同维护</sub>
   </p>
 </div>
+
+
+- [ai-delivery-spec](https://github.com/franklinxkk/ai-delivery-spec) - AI原生软件交付框架：交互总账（12倍原型压缩）、FRR补全门禁、AC-YAML、三工作路径。含CRM/交通/教育/医疗4领域模块。
