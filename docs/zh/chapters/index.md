@@ -128,7 +128,7 @@
 - [在线阅读网站](https://awesome.claude-opus.top/zh/)
 - [GitHub 仓库](https://github.com/xianyu110/awesome-claudcode-tutorial)
 - [Claude Code 官方文档](https://code.claude.com/docs/zh-CN/)
-- [MaynorAI API 服务](https://apipro.maynor1024.live/) - 国内直连
+- [MaynorAI API 服务](https://tryallapi.com/) - 国内直连
 
 ---
 

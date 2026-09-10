@@ -23,7 +23,7 @@
 
 **推荐方案：使用 MaynorAI API（国内可用，无需科学上网）**
 
-1. 访问：https://apipro.maynor1024.live/
+1. 访问：https://tryallapi.com/
 2. 注册账号并获取 API Key
 3. 确认账户有足够余额（翻译 207 篇文章）
 
@@ -34,11 +34,11 @@
 ```bash
 # Windows
 set ANTHROPIC_API_KEY=你的API密钥
-set ANTHROPIC_BASE_URL=https://apipro.maynor1024.live/v1
+set ANTHROPIC_BASE_URL=https://tryallapi.com/v1
 
 # 或者 Linux/Mac
 export ANTHROPIC_API_KEY=你的API密钥
-export ANTHROPIC_BASE_URL=https://apipro.maynor1024.live/v1
+export ANTHROPIC_BASE_URL=https://tryallapi.com/v1
 ```
 
 ### 步骤 3：运行翻译
@@ -86,7 +86,7 @@ python translate_to_english.py
 ### 问题 1：没有 API Key
 
 **解决**：
-- 访问 https://apipro.maynor1024.live/ 获取
+- 访问 https://tryallapi.com/ 获取
 - 或联系服务商
 
 ### 问题 2：翻译失败

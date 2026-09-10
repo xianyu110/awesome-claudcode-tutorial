@@ -132,7 +132,7 @@ python clean_bad_codeblocks.py tw   # 清理繁体中文
 ```bash
 # 设置 API Key
 set ANTHROPIC_API_KEY=your_api_key
-set ANTHROPIC_BASE_URL=https://apipro.maynor1024.live/v1
+set ANTHROPIC_BASE_URL=https://tryallapi.com/v1
 
 # 开始翻译
 python translate_to_english.py
@@ -162,7 +162,7 @@ python translate_to_english.py
 
 推荐使用 MaynorAI API 服务（国内可直连，无需科学上网）：
 
-- **服务地址**：https://apipro.maynor1024.live/
+- **服务地址**：https://tryallapi.com/
 - **支持的模型**：Claude Code, Claude 3.5 Sonnet, Claude 4.5 Opus
 - **优势**：国内高速访问，稳定可靠
 

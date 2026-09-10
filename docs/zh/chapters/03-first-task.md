@@ -427,4 +427,4 @@ Claude 会列出历史版本，你可以选择回到哪个时间点
 
 ---
 
-> 💡 **API 推荐**：[https://apipro.maynor1024.live/](https://apipro.maynor1024.live/) - 一站式接入各种AI服务，注册即送0.2刀
+> 💡 **API 推荐**：[https://tryallapi.com/](https://tryallapi.com/) - 一站式接入各种AI服务，注册即送0.2刀

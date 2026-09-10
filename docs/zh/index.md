@@ -84,7 +84,7 @@ features:
       <div style="color: white; font-size: 1.1em; margin-top: 10px;">稳定可靠</div>
     </div>
   </div>
-  <a href="https://apipro.maynor1024.live/" target="_blank" style="display: inline-block; background: white; color: #155799; padding: 15px 40px; border-radius: 25px; font-size: 1.1em; font-weight: bold; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+  <a href="https://tryallapi.com/" target="_blank" style="display: inline-block; background: white; color: #155799; padding: 15px 40px; border-radius: 25px; font-size: 1.1em; font-weight: bold; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
     🔗 访问 MaynorAI API 服务
   </a>
 </div>

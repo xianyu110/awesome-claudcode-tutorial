@@ -35,7 +35,7 @@
 
 **🎉 特别推荐：使用 MaynorAI API 服务**
 
-> 🔗 **API 服务地址**：https://apipro.maynor1024.live/
+> 🔗 **API 服务地址**：https://tryallapi.com/
 
 **支持的 AI 服务：**
 - ✅ **Claude Code** - Anthropic 官方编程助手（内置 Claude Opus 4.6）
@@ -250,7 +250,7 @@ cd awesome-claudcode-tutorial
 - [B站实战教程](https://www.bilibili.com/video/BV1KzYQzWEPx/)
 
 ### API 服务
-- **MaynorAI API服务**：https://apipro.maynor1024.live/ - 国内直连，稳定可靠
+- **MaynorAI API服务**：https://tryallapi.com/ - 国内直连，稳定可靠
 - **MaynorAI导航**：https://link3.cc/maynorai
 
 ## ⭐ Star History

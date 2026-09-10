@@ -18,19 +18,19 @@
 
 MaynorAI API 服务提供国内可直连的 Claude API 服务，无需科学上网。
 
-**服务地址**：https://apipro.maynor1024.live/
+**服务地址**：https://tryallapi.com/
 
 **配置步骤**：
-1. 访问 https://apipro.maynor1024.live/ 注册账号并获取 API Key
+1. 访问 https://tryallapi.com/ 注册账号并获取 API Key
 2. 设置环境变量：
    ```bash
    # Windows
    set ANTHROPIC_API_KEY=your_api_key
-   set ANTHROPIC_BASE_URL=https://apipro.maynor1024.live/v1
+   set ANTHROPIC_BASE_URL=https://tryallapi.com/v1
 
    # Linux/Mac
    export ANTHROPIC_API_KEY=your_api_key
-   export ANTHROPIC_BASE_URL=https://apipro.maynor1024.live/v1
+   export ANTHROPIC_BASE_URL=https://tryallapi.com/v1
    ```
 
 ### 方案 2：使用 Anthropic 官方 API
@@ -58,7 +58,7 @@ python translate_to_english.py
 
 ```bash
 # 使用命令行参数指定 API Key 和 Base URL
-python translate_to_english.py --api-key your_api_key --api-base https://apipro.maynor1024.live/v1
+python translate_to_english.py --api-key your_api_key --api-base https://tryallapi.com/v1
 ```
 
 ### 自定义源目录和目标目录
@@ -136,7 +136,7 @@ pip install anthropic
 
 # 2. 设置 API 配置
 set ANTHROPIC_API_KEY=sk-ant-xxxxx
-set ANTHROPIC_BASE_URL=https://apipro.maynor1024.live/v1
+set ANTHROPIC_BASE_URL=https://tryallapi.com/v1
 
 # 3. 开始翻译
 python translate_to_english.py
@@ -159,5 +159,5 @@ python translate_to_english.py
 ## 技术支持
 
 如有问题，请访问：
-- MaynorAI API 服务：https://apipro.maynor1024.live/
+- MaynorAI API 服务：https://tryallapi.com/
 - GitHub Issues：https://github.com/xianyu110/claudecode-tutorial/issues

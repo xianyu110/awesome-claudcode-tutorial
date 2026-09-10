@@ -194,4 +194,4 @@ claude config set api_key your-api-key-here
 
 ---
 
-> 💡 **API 推荐**：[https://apipro.maynor1024.live/](https://apipro.maynor1024.live/) - 一站式接入各种AI服务，注册即送0.2刀
+> 💡 **API 推荐**：[https://tryallapi.com/](https://tryallapi.com/) - 一站式接入各种AI服务，注册即送0.2刀
