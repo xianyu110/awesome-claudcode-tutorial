@@ -247,6 +247,7 @@ cd awesome-claudcode-tutorial
 ### 社区资源
 - [Claude 中文社区](https://www.claude-cn.org)
 - [Claude Code 国内使用指南](https://github.com/claude-code-chinese/claude-code-guide)
+- [Agent QA](https://github.com/vostride/agent-qa) - 面向软件团队的自改进 QA Agent，支持自然语言 Web/移动端测试、持久测试记忆和自愈流程。
 - [B站实战教程](https://www.bilibili.com/video/BV1KzYQzWEPx/)
 
 ### API 服务
