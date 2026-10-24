@@ -1,5 +1,20 @@
 # 更新日志
 
+## 2026-10-24 - 已更新至 Claude Code 2.1.310
+
+对照 npm 最新版（2.1.310）、[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 和[官方文档](https://code.claude.com/docs/en/overview)更新教程：
+
+- 新增第 30 章「新版速览：Claude Code 2.1.310」：5.5 系列模型、auto 默认权限模式、已移除命令、新命令与 CLI 用法
+- 第 01 章：系统要求、stable / latest 更新通道、Homebrew / WinGet 升级、npm 安装、`claude update` / `claude install` / `claude doctor`
+- 第 02 章：`claude auth status`、`claude setup-token`、云服务商（Bedrock / Agent Platform / Foundry）、第三方 Base URL（`ANTHROPIC_AUTH_TOKEN` vs `ANTHROPIC_API_KEY`、settings.json `env`）
+- 第 03、04、06、07 章：改用 `--permission-mode auto|plan|acceptEdits|dontAsk|bypassPermissions`，补充 6 种权限模式及 Shift+Tab 循环，标注不存在的旧参数
+- 第 11 章：改用官方 `claude mcp add` / `.mcp.json` / `~/.claude.json`
+- 第 12 章：改用 `-c` / `-r` / `--fork-session` / `/resume` / `/branch` / `/export`，会话存储位置更新
+- 第 16 章：新增官方 Hooks 配置方式（settings.json `hooks`）
+- 第 25 章：新增官方 `anthropics/claude-code-action@v1` 示例，标注未核实的 `claude check/review` 子命令
+- 第 28 章：修正 `--worktree` 语法
+- 第 09、14 章：标注不存在的 `~/.claude/config.json` 配置
+
 ## 2026-03-14 - 新增第五部分：企业级应用与最佳实践
 
 ### 新增章节 (21-25)

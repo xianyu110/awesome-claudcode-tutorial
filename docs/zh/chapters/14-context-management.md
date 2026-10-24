@@ -202,6 +202,8 @@ context smart-clean
 
 ### 自动配置
 
+> ⚠️ **未核实**：下面的配置文件路径和字段在当前官方文档中找不到（Claude Code 的配置文件是 `~/.claude/settings.json` 和项目 `.claude/settings.json`，而不是 `config.json`），仅作思路示意，请勿直接照搬。
+
 ```json
 // ~/.claude/config.json
 {

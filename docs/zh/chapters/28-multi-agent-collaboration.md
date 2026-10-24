@@ -59,6 +59,8 @@ claude --worktree
 # 4. 完成后可以选择保留或删除
 ```
 
+也可以直接指定 worktree 名称（官方示例）：`claude -w feature-auth`，worktree 会创建在 `<repo>/.claude/worktrees/<name>`。
+
 ### Worktree 与多 Agent 的关系
 
 ```
@@ -507,9 +509,9 @@ Agent 们完成工作后通知你
 目标：为电商平台添加商品推荐功能
 
 Step 1: 创建 Worktrees
-$ claude --worktree name=recommendation-engine
-$ claude --worktree name=api-endpoints
-$ claude --worktree name=frontend-ui
+$ claude --worktree recommendation-engine
+$ claude --worktree api-endpoints
+$ claude --worktree frontend-ui
 
 Step 2: 启动多个 Agent
 Agent 1（recommendation-engine worktree）:

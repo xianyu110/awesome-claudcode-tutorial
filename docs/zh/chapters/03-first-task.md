@@ -308,17 +308,17 @@ s - 跳过此操作
 ### 自动模式
 
 ```bash
-# 启动时使用
-claude --auto-approve
+# 启动时使用（v2.1.283 起交互式会话默认就是 auto 模式）
+claude --permission-mode auto
 
-# 所有操作自动执行，适合信任 Claude 的场景
+# 由后台分类器审查每个操作，减少确认打扰
 ```
 
 ### 规划模式
 
 ```bash
-# 启动时使用（按两次 Shift+Tab）
-claude --plan-mode
+# 启动时使用（会话中也可按 Shift+Tab 循环切换到 plan）
+claude --permission-mode plan
 
 # 先看到完整计划，批准后执行
 ```

@@ -63,10 +63,45 @@ Claude Code 可以：
 # Claude Code 必须是最新版本
 claude --version
 # 如果版本过旧，更新：
-npm update -g @anthropic-ai/claude-code
-# 或
+claude update
+# npm 安装用户：
+npm install -g @anthropic-ai/claude-code@latest
+# Homebrew 用户：
 brew upgrade claude-code
 ```
+
+### ✅ 官方推荐：用 `claude mcp add` 添加
+
+> 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
+
+```bash
+# 远程 HTTP 服务器（官方示例）
+claude mcp add --transport http notion https://mcp.notion.com/mcp
+
+# 本地 stdio 服务器：-- 之后是启动服务器的命令（官方示例）
+claude mcp add --env AIRTABLE_API_KEY=YOUR_KEY --transport stdio airtable \
+  -- npx -y airtable-mcp-server
+
+# 从 JSON 添加
+claude mcp add-json <name> '<json>'
+
+# 管理
+claude mcp list
+claude mcp get notion
+claude mcp remove notion
+```
+
+会话中运行 `/mcp` 可以查看状态、登录 OAuth；`/mcp reconnect all`（v2.1.284 起）可重连所有服务器。
+
+**作用域（`--scope`）：**
+
+| 作用域 | 生效范围 | 是否与团队共享 | 存储位置 |
+|--------|----------|----------------|----------|
+| `local`（默认） | 仅当前项目 | 否 | `~/.claude.json` |
+| `project` | 仅当前项目 | 是，提交到版本库 | 项目根目录 `.mcp.json` |
+| `user` | 你的所有项目 | 否 | `~/.claude.json` |
+
+> ⚠️ 下文中的 `@modelcontextprotocol/server-figma` 等包名、`claude mcp install`、`claude config set mcp...` 写法未在官方文档中核实，请以各 MCP 服务器自己的说明和上面的 `claude mcp add` 为准。
 
 ### 方式一：使用 NPX（推荐）
 
@@ -88,9 +123,9 @@ npx -y @modelcontextprotocol/server-puppeteer
 npm install -g @modelcontextprotocol/server-figma
 npm install -g @modelcontextprotocol/server-github
 
-# 在 Claude Code 中配置
-claude config set mcp.servers.figma.command "mcp-server-figma"
-claude config set mcp.servers.github.command "mcp-server-github"
+# 在 Claude Code 中配置（用 claude mcp add，-- 后面是启动命令）
+claude mcp add --transport stdio figma -- mcp-server-figma
+claude mcp add --transport stdio github -- mcp-server-github
 ```
 
 ### 方式三：项目级别安装
@@ -101,7 +136,8 @@ cd your-project
 npm install --save-dev @modelcontextprotocol/server-figma
 
 # 配置项目
-echo "figma: npx @modelcontextprotocol/server-figma" > .claude/mcp-servers.json
+# 写入项目根目录的 .mcp.json，可提交给团队共享
+claude mcp add --scope project --transport stdio figma -- npx @modelcontextprotocol/server-figma
 ```
 
 ## ⚙️ 配置 MCP Server
@@ -109,15 +145,16 @@ echo "figma: npx @modelcontextprotocol/server-figma" > .claude/mcp-servers.json
 ### 配置文件位置
 
 ```
-~/.claude/
-├── config.json           # 全局配置
-└── mcp-servers.json      # MCP 服务器配置
+~/.claude.json      # local / user 作用域的 MCP 服务器
+<项目根目录>/.mcp.json  # project 作用域（可提交到 Git 与团队共享）
 ```
+
+> 下面的 JSON 结构（`mcpServers` 字段）可直接写进项目根目录的 `.mcp.json`；旧版教程中的 `~/.claude/mcp-servers.json` 路径不在当前官方文档中。
 
 ### 基础配置示例
 
 ```json
-// ~/.claude/mcp-servers.json
+// <项目根目录>/.mcp.json
 {
   "mcpServers": {
     "figma": {
@@ -168,8 +205,9 @@ echo "figma: npx @modelcontextprotocol/server-figma" > .claude/mcp-servers.json
 #### 步骤 2: 安装和配置
 
 ```bash
-# 配置 Figma Server
-claude mcp install figma
+# 配置 Figma Server（命令以 Figma 官方 MCP 文档为准）
+claude mcp add --transport stdio --env FIGMA_ACCESS_TOKEN=your-token-here figma \
+  -- npx -y @modelcontextprotocol/server-figma
 ```
 
 或手动配置：
@@ -490,7 +528,7 @@ claude mcp test figma
    FIGMA_ACCESS_TOKEN=figd_xxx
    GITHUB_TOKEN=ghp_xxx
 
-   # .claude/mcp-servers.json
+   # .mcp.json（项目根目录）
    {
      "env": {
        "FIGMA_ACCESS_TOKEN": "${FIGMA_ACCESS_TOKEN}"
@@ -511,7 +549,7 @@ claude mcp test figma
 ### 访问控制
 
 ```json
-// ~/.claude/mcp-servers.json
+// <项目根目录>/.mcp.json
 {
   "mcpServers": {
     "github": {
