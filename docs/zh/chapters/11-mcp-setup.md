@@ -1,5 +1,6 @@
 # 11. 安装 MCP Server
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 MCP (Model Context Protocol) Server 让 Claude Code 能够连接外部工具和服务，大大扩展其能力。
 
 ## 🎯 什么是 MCP Server？
@@ -90,6 +91,18 @@ claude mcp list
 claude mcp get notion
 claude mcp remove notion
 ```
+
+![claude mcp add（HTTP）示意](/images/screenshots/11-mcp-add.png)
+
+> 📷 示意图
+
+![claude mcp add（stdio + 环境变量，密钥打码）](/images/screenshots/11-mcp-add-stdio.png)
+
+> 📷 示意图：密钥已打码为 sk-xxxx
+
+![claude mcp list / get 示意](/images/screenshots/11-mcp-list.png)
+
+> 📷 示意图
 
 会话中运行 `/mcp` 可以查看状态、登录 OAuth；`/mcp reconnect all`（v2.1.284 起）可重连所有服务器。
 

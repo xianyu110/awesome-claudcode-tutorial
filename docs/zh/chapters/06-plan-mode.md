@@ -1,5 +1,8 @@
 # 06. 使用规划模式 (Plan Mode)
 
+
+> 📷 **截图说明**：本章配图为终端风格示意图，密钥均已打码。
+
 规划模式是处理复杂任务的强大工具，让你在执行前就能看到完整的计划。
 
 > 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
@@ -25,6 +28,14 @@
 ```bash
 claude --permission-mode plan
 ```
+
+![规划模式启动示意](/images/screenshots/04-plan-mode.png)
+
+> 📷 示意图
+
+![Shift+Tab 切换权限模式](/images/screenshots/04-shift-tab.png)
+
+> 📷 示意图
 
 ### 方式二：快捷键切换
 

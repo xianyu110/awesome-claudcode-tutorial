@@ -2,6 +2,7 @@
 
 > 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 ## 🔑 为什么需要授权？
 
 Claude Code 需要授权才能：
@@ -80,6 +81,14 @@ claude auth status
 claude auth status --text
 ```
 
+![claude auth status --text（邮箱已打码）](/images/screenshots/02-auth-status.png)
+
+> 📷 示意图：邮箱与组织已打码
+
+![claude auth status JSON 示意](/images/screenshots/02-auth-status-json.png)
+
+> 📷 示意图
+
 在会话中也可以运行 `/status` 查看当前账户、Base URL 和凭据来源。
 
 > 💡 旧版教程中的 `claude auth whoami` 不在当前官方 CLI 参考中，请改用 `claude auth status`。
@@ -89,6 +98,10 @@ claude auth status --text
 ```bash
 claude setup-token
 ```
+![claude setup-token 示意（令牌已打码）](/images/screenshots/02-setup-token.png)
+
+> 📷 示意图：令牌显示为 sk-ant-oat01-••••••••
+
 
 该命令会生成一个长期有效的 OAuth 令牌并打印到终端（不会保存），需要 Claude 订阅。
 
@@ -154,6 +167,14 @@ $env:ANTHROPIC_AUTH_TOKEN = "sk-xxxx"
   }
 }
 ```
+
+![settings.json 中转配置（密钥占位符 sk-xxxx）](/images/screenshots/02-settings-env.png)
+
+> 📷 示意图：仅占位符，切勿提交真实密钥
+
+![/status 确认 Base URL 已生效](/images/screenshots/02-status-relay.png)
+
+> 📷 示意图
 
 - `sk-xxxx` 只是占位符，请替换为你自己的密钥，**不要把真实密钥提交到 Git 仓库**
 - Windows 路径为 `%USERPROFILE%\.claude\settings.json`

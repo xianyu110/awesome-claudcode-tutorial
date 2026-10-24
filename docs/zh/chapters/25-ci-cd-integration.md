@@ -1,5 +1,6 @@
 # 25. CI/CD 集成 (CI/CD Integration)
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 将 Claude Code 集成到 CI/CD 流水线，实现自动化代码审查、测试和部署。
 
 ## 🔄 CI/CD 概览
@@ -81,6 +82,10 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
+
+![anthropics/claude-code-action@v1 配置示意](/images/screenshots/25-gha-action.png)
+
+> 📷 示意图：密钥放在 GitHub Secrets
 
 - 使用 Claude 订阅时，把 `anthropic_api_key` 换成下面这行（令牌可用 `claude setup-token` 生成）：
 

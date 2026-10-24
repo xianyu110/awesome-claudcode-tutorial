@@ -1,5 +1,6 @@
 # 16. Hook 系统
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 Hooks 让你在特定事件发生时自动执行自定义脚本。
 
 > 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方 Hooks 文档](https://code.claude.com/docs/en/hooks)为准。
@@ -51,6 +52,10 @@ Hook 写在设置文件的 `hooks` 字段中：用户级 `~/.claude/settings.jso
 }
 ```
 
+![.claude/settings.json 中的 hooks 配置（官方示例）](/images/screenshots/16-hooks-settings.png)
+
+> 📷 示意图：结构来自官方 Hooks 文档
+
 `.claude/hooks/block-rm.sh`（记得 `chmod +x`，并安装 `jq`）：
 
 ```bash
@@ -74,6 +79,10 @@ fi
 - `matcher` 按工具名过滤，支持 `Edit|Write`、`mcp__.*` 这类写法
 - `if` 用权限规则语法进一步缩小范围
 - 在会话中可用 `/hooks` 查看已配置的 Hook
+
+![/hooks 菜单示意](/images/screenshots/16-hooks-menu.png)
+
+> 📷 示意图
 
 > 下文为旧版教程内容，仅供参考思路。
 

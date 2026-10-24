@@ -1,5 +1,6 @@
 # 04. 三种模式详解
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 Claude Code 有三种核心权限模式，理解它们的区别对于高效使用至关重要。
 
 > 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
@@ -22,6 +23,14 @@ claude --permission-mode plan
 claude --permission-mode acceptEdits
 claude --permission-mode auto
 ```
+![以 auto 模式启动 Claude Code](/images/screenshots/04-permission-mode-auto.png)
+
+> 📷 示意图
+
+![Shift+Tab 循环切换权限模式](/images/screenshots/04-shift-tab.png)
+
+> 📷 示意图：循环顺序来自官方文档
+
 
 ## 📋 三种模式概览
 
@@ -386,6 +395,10 @@ Claude: [执行计划]
 ```bash
 claude --permission-mode plan
 ```
+![规划模式启动与计划示意](/images/screenshots/04-plan-mode.png)
+
+> 📷 示意图
+
 
 ```
 你: "我想添加用户认证功能，包括登录、注册、密码重置"

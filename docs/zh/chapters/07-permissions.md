@@ -1,5 +1,6 @@
 # 07. 跳过所有权限检测 (dangerously-skip-permissions)
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 ## ⚠️ 重要警告
 
 `--dangerously-skip-permissions` 是一个高级选项，适合以下场景：
@@ -168,6 +169,10 @@ Claude:
 ```bash
 claude --dangerously-skip-permissions
 ```
+![bypassPermissions 警告示意](/images/screenshots/07-bypass-warning.png)
+
+> 📷 示意图：仅限隔离环境
+
 
 ```
 你: 格式化项目中所有的 JavaScript 文件，
@@ -283,6 +288,10 @@ claude --allowedTools "Read" "Bash(npm test)"
 # CI/脚本：只允许白名单工具，其余一律拒绝
 claude -p "run the test suite" --permission-mode dontAsk --allowedTools "Bash(npm test)" "Read"
 ```
+
+![CI 中 dontAsk + allowedTools 示意](/images/screenshots/07-dontask-ci.png)
+
+> 📷 示意图
 
 排除敏感文件可在 `settings.json` 中配置 `deny` 规则（即使在 bypassPermissions 模式下也生效）：
 

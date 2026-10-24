@@ -2,6 +2,7 @@
 
 > 📌 **版本说明**：本章基于 Claude Code **2.1.310**（npm `latest`，2026-10-24 发布）整理，只收录能在[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 中查到的内容。如果你是从旧版教程（Opus 4.6 / Sonnet 4.6 时代）过来的，建议先读这一章。
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 ## 🔢 查看与升级版本
 
 ```bash
@@ -17,6 +18,18 @@ npm install -g @anthropic-ai/claude-code@latest
 # 检查安装和自动更新状态
 claude doctor
 ```
+
+![claude --version（2.1.310）](/images/screenshots/01-version.png)
+
+> 📷 版本号来自 npm latest
+
+![claude update 示意](/images/screenshots/01-update.png)
+
+> 📷 示意图
+
+![claude doctor 示意](/images/screenshots/01-doctor.png)
+
+> 📷 示意图
 
 > 💡 想要更稳定的版本，可以切到 `stable` 通道（通常比最新版晚约一周），详见 [01. 安装 Claude Code](./01-installation.md)。
 
@@ -44,6 +57,14 @@ claude --model opus
 # 或在会话中
 /model
 ```
+
+![/model 选择器示意（5.5 系列）](/images/screenshots/30-model.png)
+
+> 📷 示意图
+
+![Shift+Tab 权限模式循环](/images/screenshots/04-shift-tab.png)
+
+> 📷 示意图
 
 ### 新模型 ID 与价格（来自官方 CHANGELOG）
 
@@ -123,6 +144,34 @@ claude --effort high
 # 非交互运行 ultrareview
 claude ultrareview
 ```
+
+![claude --bg 后台会话](/images/screenshots/30-bg.png)
+
+> 📷 示意图
+
+![claude -w worktree](/images/screenshots/30-worktree.png)
+
+> 📷 示意图
+
+![/usage 用量（数字已打码）](/images/screenshots/30-usage.png)
+
+> 📷 示意图：费用数字已打码
+
+![/effort 示意](/images/screenshots/30-effort.png)
+
+> 📷 示意图
+
+![/recap 示意](/images/screenshots/30-recap.png)
+
+> 📷 示意图
+
+![auth status（打码）](/images/screenshots/02-auth-status.png)
+
+> 📷 示意图
+
+![settings.json 中转配置（sk-xxxx）](/images/screenshots/02-settings-env.png)
+
+> 📷 示意图：占位符密钥
 
 ## 🌐 第三方 / 中转 Base URL 快速配置
 

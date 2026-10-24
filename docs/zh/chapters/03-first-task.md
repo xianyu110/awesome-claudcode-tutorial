@@ -1,5 +1,8 @@
 # 03. 第一个实战问题
 
+
+> 📷 **截图说明**：本章配图为终端风格示意图。
+
 ## 🎯 学习目标
 
 通过实际操作，学习如何：
@@ -313,6 +316,10 @@ claude --permission-mode auto
 
 # 由后台分类器审查每个操作，减少确认打扰
 ```
+
+![以 auto 模式启动](/images/screenshots/04-permission-mode-auto.png)
+
+> 📷 示意图
 
 ### 规划模式
 

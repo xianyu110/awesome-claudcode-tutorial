@@ -2,6 +2,7 @@
 
 > 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 Resume 功能让你能够恢复之前的对话会话，继续未完成的工作。
 
 ## 🎯 什么是 Resume？
@@ -259,6 +260,18 @@ claude --resume auth-refactor
 # 只看与某个 PR 关联的会话
 claude --from-pr 123
 ```
+
+![claude -c 继续最近会话](/images/screenshots/12-continue.png)
+
+> 📷 示意图
+
+![claude -r / --fork-session 恢复与分叉](/images/screenshots/12-resume.png)
+
+> 📷 示意图
+
+![/export 与 JSON 摘要示意](/images/screenshots/12-export.png)
+
+> 📷 示意图
 
 在会话中也可以使用：
 

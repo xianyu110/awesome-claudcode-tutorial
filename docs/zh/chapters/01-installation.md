@@ -2,6 +2,7 @@
 
 > 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 ## 📥 什么是 Claude Code？
 
 Claude Code 是一个由 AI 驱动的编码助手，它可以：
@@ -77,6 +78,10 @@ brew install --cask claude-code@latest
 brew upgrade claude-code        # 或 brew upgrade claude-code@latest
 ```
 
+![Homebrew 安装 / 升级 Claude Code](/images/screenshots/01-brew-install.png)
+
+> 📷 示意图（macOS）
+
 ### 方法三：WinGet（Windows）
 
 ```powershell
@@ -97,6 +102,10 @@ npm install -g @anthropic-ai/claude-code
 npm install -g @anthropic-ai/claude-code@latest
 ```
 
+![npm 全局安装 Claude Code](/images/screenshots/01-npm-install.png)
+
+> 📷 示意图；版本号为真实 npm latest 2.1.310
+
 > ⚠️ 不要使用 `sudo npm install -g`，可能导致权限问题和安全风险。
 
 ### 方法五：Linux 包管理器
@@ -113,6 +122,14 @@ claude update
 claude install stable
 claude install latest
 ```
+
+![claude update 示意](/images/screenshots/01-update.png)
+
+> 📷 示意图
+
+![claude install stable / latest 示意](/images/screenshots/01-install-stable.png)
+
+> 📷 示意图：stable 通常比 latest 晚约一周
 
 原生安装默认跟随 `latest` 通道。想要更稳的版本，可以在 `/config` → **Auto-update channel** 中切换，或写入 `~/.claude/settings.json`：
 
@@ -137,6 +154,16 @@ curl -fsSL https://claude.ai/install.sh | bash -s 2.1.89
 ```bash
 claude --version
 ```
+![claude --version 输出（2.1.310）](/images/screenshots/01-version.png)
+
+> 📷 版本号来自 npm latest 2.1.310；本环境渲染
+
+![claude doctor 诊断示意](/images/screenshots/01-doctor.png)
+
+> 📷 示意图：输出格式按官方文档整理，本机未登录 Claude
+
+> 📷 示意图
+
 
 如果显示版本号（例如 `2.1.310 (Claude Code)`），说明安装成功！还可以运行 `claude doctor` 检查安装和自动更新状态。
 
