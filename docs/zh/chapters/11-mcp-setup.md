@@ -94,15 +94,15 @@ claude mcp remove notion
 
 ![claude mcp add（HTTP）示意](/images/screenshots/11-mcp-add.png)
 
-> 📷 示意图
+> 📷 真实输出（已打码，Claude Code 2.1.310）；随后已 mcp remove 还原
 
 ![claude mcp add（stdio + 环境变量，密钥打码）](/images/screenshots/11-mcp-add-stdio.png)
 
-> 📷 示意图：密钥已打码为 sk-xxxx
+> 📷 真实输出：mcp remove + list（已还原用户 MCP 配置，Claude Code 2.1.310）
 
 ![claude mcp list / get 示意](/images/screenshots/11-mcp-list.png)
 
-> 📷 示意图
+> 📷 真实输出（Claude Code 2.1.310）
 
 会话中运行 `/mcp` 可以查看状态、登录 OAuth；`/mcp reconnect all`（v2.1.284 起）可重连所有服务器。
 

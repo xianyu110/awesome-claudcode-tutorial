@@ -1,8 +1,19 @@
 # 17. Agent Skills
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 Skills 是可重用的自定义工作流，让 Claude Code 执行复杂的多步骤任务。
 
 ## 🎯 什么是 Skill？
+
+![/skills 示意](/images/screenshots/17-skills.png)
+
+> 📷 示意图
+
+![/skill-doctor 示意](/images/screenshots/17-skill-doctor.png)
+
+> 📷 示意图
 
 ### 核心概念
 

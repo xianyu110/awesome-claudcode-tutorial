@@ -1,8 +1,15 @@
 # 22. 企业部署 (Enterprise Deployment)
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 在企业环境中部署和管理 Claude Code，需要考虑安全、合规、团队协作等多个方面。
 
 ## 🏢 企业级特性
+
+![managed settings 示意](/images/screenshots/22-managed-settings.png)
+
+> 📷 示意图
 
 ### 1. 托管设置 (Managed Settings)
 

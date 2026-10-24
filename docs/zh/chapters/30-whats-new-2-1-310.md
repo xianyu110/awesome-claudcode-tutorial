@@ -19,17 +19,25 @@ npm install -g @anthropic-ai/claude-code@latest
 claude doctor
 ```
 
+![claude --help 开头真实输出](/images/screenshots/30-help-header.png)
+
+> 📷 真实输出（Claude Code 2.1.310）
+
+![非交互 -p 真实输出](/images/screenshots/03-print-ok.png)
+
+> 📷 真实输出（Claude Code 2.1.310）
+
 ![claude --version（2.1.310）](/images/screenshots/01-version.png)
 
-> 📷 版本号来自 npm latest
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 ![claude update 示意](/images/screenshots/01-update.png)
 
-> 📷 示意图
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 ![claude doctor 示意](/images/screenshots/01-doctor.png)
 
-> 📷 示意图
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 > 💡 想要更稳定的版本，可以切到 `stable` 通道（通常比最新版晚约一周），详见 [01. 安装 Claude Code](./01-installation.md)。
 
@@ -147,11 +155,11 @@ claude ultrareview
 
 ![claude --bg 后台会话](/images/screenshots/30-bg.png)
 
-> 📷 示意图
+> 📷 真实输出（claude --help 节选，Claude Code 2.1.310）
 
 ![claude -w worktree](/images/screenshots/30-worktree.png)
 
-> 📷 示意图
+> 📷 真实输出（claude --help 节选，Claude Code 2.1.310）
 
 ![/usage 用量（数字已打码）](/images/screenshots/30-usage.png)
 
@@ -159,7 +167,7 @@ claude ultrareview
 
 ![/effort 示意](/images/screenshots/30-effort.png)
 
-> 📷 示意图
+> 📷 真实输出（claude --help 节选，Claude Code 2.1.310）
 
 ![/recap 示意](/images/screenshots/30-recap.png)
 
@@ -167,11 +175,11 @@ claude ultrareview
 
 ![auth status（打码）](/images/screenshots/02-auth-status.png)
 
-> 📷 示意图
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 ![settings.json 中转配置（sk-xxxx）](/images/screenshots/02-settings-env.png)
 
-> 📷 示意图：占位符密钥
+> 📷 真实输出（密钥已打码为 sk-••••••••，Claude Code 2.1.310 / momoai 中转）
 
 ## 🌐 第三方 / 中转 Base URL 快速配置
 

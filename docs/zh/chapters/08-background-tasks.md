@@ -1,5 +1,8 @@
 # 08. 后台任务管理 (Background Tasks)
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 后台任务让你能够启动长时间运行的操作，然后在完成时检查结果，而不阻塞你的工作流。
 
 ## 🎯 什么是后台任务？
@@ -25,6 +28,14 @@ Task started: task_001
 ```
 
 ## 🚀 启动后台任务
+
+![后台任务启动示意](/images/screenshots/08-background.png)
+
+> 📷 示意图
+
+![/tasks 示意](/images/screenshots/08-tasks.png)
+
+> 📷 示意图
 
 ### 自动后台执行
 

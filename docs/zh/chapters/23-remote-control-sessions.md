@@ -1,8 +1,15 @@
 # 23. 远程控制与会话 (Remote Control & Sessions)
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 Claude Code 支持远程会话管理，让你可以在多设备间无缝切换工作。
 
 ## 🌐 远程控制基础
+
+![Remote Control 与自定义 Base URL](/images/screenshots/23-remote.png)
+
+> 📷 示意图；真实 doctor 已确认自定义 Base URL 时 Remote Control 不可用
 
 ### 1. 什么是远程控制？
 

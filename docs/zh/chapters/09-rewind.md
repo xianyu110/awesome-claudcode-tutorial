@@ -1,5 +1,8 @@
 # 09. 版本回滚 (Rewind)
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 Rewind 功能让你能够回退到之前的会话状态，就像时光倒流一样。
 
 ## 🎯 什么是 Rewind？
@@ -142,6 +145,10 @@ Claude: → Rewind 到 09:06
 ```
 
 ## 🎛️ Rewind 命令
+
+![/rewind 示意](/images/screenshots/09-rewind.png)
+
+> 📷 示意图
 
 ### 基本语法
 

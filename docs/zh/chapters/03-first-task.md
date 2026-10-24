@@ -317,6 +317,10 @@ claude --permission-mode auto
 # 由后台分类器审查每个操作，减少确认打扰
 ```
 
+![非交互 claude -p 真实输出](/images/screenshots/03-print-ok.png)
+
+> 📷 真实输出（Claude Code 2.1.310）
+
 ![以 auto 模式启动](/images/screenshots/04-permission-mode-auto.png)
 
 > 📷 示意图

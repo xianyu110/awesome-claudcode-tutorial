@@ -125,7 +125,7 @@ claude install latest
 
 ![claude update 示意](/images/screenshots/01-update.png)
 
-> 📷 示意图
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 ![claude install stable / latest 示意](/images/screenshots/01-install-stable.png)
 
@@ -156,11 +156,11 @@ claude --version
 ```
 ![claude --version 输出（2.1.310）](/images/screenshots/01-version.png)
 
-> 📷 版本号来自 npm latest 2.1.310；本环境渲染
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 ![claude doctor 诊断示意](/images/screenshots/01-doctor.png)
 
-> 📷 示意图：输出格式按官方文档整理，本机未登录 Claude
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 > 📷 示意图
 

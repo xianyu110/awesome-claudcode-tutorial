@@ -263,11 +263,11 @@ claude --from-pr 123
 
 ![claude -c 继续最近会话](/images/screenshots/12-continue.png)
 
-> 📷 示意图
+> 📷 真实输出（claude --help 节选，Claude Code 2.1.310）
 
 ![claude -r / --fork-session 恢复与分叉](/images/screenshots/12-resume.png)
 
-> 📷 示意图
+> 📷 真实输出（claude --help 节选，Claude Code 2.1.310）
 
 ![/export 与 JSON 摘要示意](/images/screenshots/12-export.png)
 

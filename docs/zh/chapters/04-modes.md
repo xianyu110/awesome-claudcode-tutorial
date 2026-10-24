@@ -23,6 +23,10 @@ claude --permission-mode plan
 claude --permission-mode acceptEdits
 claude --permission-mode auto
 ```
+
+![claude --help permission-mode 真实节选](/images/screenshots/04-help-permission-mode.png)
+
+> 📷 真实输出（Claude Code 2.1.310）
 ![以 auto 模式启动 Claude Code](/images/screenshots/04-permission-mode-auto.png)
 
 > 📷 示意图

@@ -83,11 +83,11 @@ claude auth status --text
 
 ![claude auth status --text（邮箱已打码）](/images/screenshots/02-auth-status.png)
 
-> 📷 示意图：邮箱与组织已打码
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 ![claude auth status JSON 示意](/images/screenshots/02-auth-status-json.png)
 
-> 📷 示意图
+> 📷 真实输出（已打码，Claude Code 2.1.310）
 
 在会话中也可以运行 `/status` 查看当前账户、Base URL 和凭据来源。
 
@@ -170,11 +170,11 @@ $env:ANTHROPIC_AUTH_TOKEN = "sk-xxxx"
 
 ![settings.json 中转配置（密钥占位符 sk-xxxx）](/images/screenshots/02-settings-env.png)
 
-> 📷 示意图：仅占位符，切勿提交真实密钥
+> 📷 真实输出（密钥已打码为 sk-••••••••，Claude Code 2.1.310 / momoai 中转）
 
 ![/status 确认 Base URL 已生效](/images/screenshots/02-status-relay.png)
 
-> 📷 示意图
+> 📷 基于真实 auth status + settings 拼合（/status 交互界面未抓取）
 
 - `sk-xxxx` 只是占位符，请替换为你自己的密钥，**不要把真实密钥提交到 Git 仓库**
 - Windows 路径为 `%USERPROFILE%\.claude\settings.json`

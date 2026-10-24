@@ -1,5 +1,9 @@
 # 07. 跳过所有权限检测 (dangerously-skip-permissions)
 
+![claude --help bypass 真实节选](/images/screenshots/07-help-bypass.png)
+
+> 📷 真实输出（Claude Code 2.1.310）
+
 > 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 ## ⚠️ 重要警告
 
@@ -291,7 +295,7 @@ claude -p "run the test suite" --permission-mode dontAsk --allowedTools "Bash(np
 
 ![CI 中 dontAsk + allowedTools 示意](/images/screenshots/07-dontask-ci.png)
 
-> 📷 示意图
+> 📷 真实非交互输出（Claude Code 2.1.310；CI 写法示意）
 
 排除敏感文件可在 `settings.json` 中配置 `deny` 规则（即使在 bypassPermissions 模式下也生效）：
 
