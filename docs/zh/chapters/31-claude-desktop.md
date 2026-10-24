@@ -2,7 +2,7 @@
 
 > 📌 **版本说明**：本章基于 Claude Desktop 官方文档（[Desktop quickstart](https://code.claude.com/docs/en/desktop-quickstart)、[Use Claude Code Desktop](https://code.claude.com/docs/en/desktop)）与 [MCP 官方文档](https://modelcontextprotocol.io/docs/develop/connect-local-servers) 整理，对照本机 Claude Desktop **1.34493.1**（macOS 26.3 / arm64）与 Claude Code CLI **2.1.310**。文中菜单名称已与 Claude.app 1.34493.1 内置界面文案（`en-US` / `zh-CN`）逐一核对：英文界面名称在前，括号内为简体中文界面显示的名称。Desktop 界面会随版本调整，实际以你看到的为准。
 
-> 📷 **截图说明**：本章配图**都不是 Desktop 图形界面截图**。标注 **终端输出** 的是在本机终端里采集的真实命令输出（敏感值已用 `••` 替换）；标注 **示意图** 的是按官方文档整理的终端风格渲染图，仅用来概括界面要点。Desktop 真实界面截图将在后续补充。所有密钥均为占位符（`sk-xxxx`）。
+> 📷 **截图说明**：标注 **真实界面（Mac · 已打码）** 的是本机 Claude.app 1.34493.1 窗口截图（侧边栏会话标题、用户名、项目路径等已遮罩）；标注 **终端输出** 的是真实命令输出（敏感值已用 `••` 替换）；标注 **示意图** 的仍是终端风格渲染图（尚无对应真实界面、或本身就是对照表）。所有密钥均为占位符（`sk-xxxx`）。
 
 Claude Desktop 的 **Code** 标签让你不打开终端也能使用 Claude Code：可视化 diff、并行会话、内置终端、连接器、计划任务等。它和 CLI 共用同一个引擎和配置，可以随时来回切换。
 
@@ -20,9 +20,9 @@ Claude Desktop 的 **Code** 标签让你不打开终端也能使用 Claude Code�
 
 下载地址见官方 [Desktop quickstart](https://code.claude.com/docs/en/desktop-quickstart)。**Desktop 内置 Claude Code，不需要单独安装 Node.js 或 CLI。**
 
-![Claude Desktop 下载与系统选择](/images/screenshots/31-desktop-download.png)
+![Claude Desktop「关于 Claude」对话框](/images/screenshots/31-desktop-download.png)
 
-*示意图：终端风格渲染，概括官方文档中的界面要点，不是 Desktop 真实界面截图*
+*真实界面（Mac · Claude.app 1.34493.1）：菜单栏 Claude → 关于 Claude。安装包仍请从官方 [Desktop quickstart](https://code.claude.com/docs/en/desktop-quickstart) 下载。*
 
 ### 1.2 确认已安装（macOS）
 
@@ -63,7 +63,7 @@ Claude 改完文件后，会出现类似 `+12 -1` 的改动指示，点击即可
 
 ![Code 标签：开始第一个会话](/images/screenshots/31-code-tab-session.png)
 
-*示意图：终端风格渲染，概括官方文档中的界面要点，不是 Desktop 真实界面截图*
+*真实界面（Mac · 已打码）：Code（代码）标签，底部为环境 / 项目文件夹 / 权限模式 / 模型选择器*
 
 ## 🛡️ 三、权限模式
 
@@ -74,7 +74,7 @@ Desktop 的权限模式在输入框旁的模式选择器中切换，和 CLI 一�
 | Manual（手动） | `default` | 编辑文件、运行命令前先询问 |
 | Accept edits（接受编辑） | `acceptEdits` | 自动接受文件编辑 |
 | Plan（计划） | `plan` | 只分析和出方案，不修改文件 |
-| Auto（自动） | `auto` | 后台分类器拦截高风险操作 |
+| Auto（自动） | `auto` | 后台分类器拦截高风险操作（本机 1.34493.1 中文界面的模式菜单里当前未列出此项，以你看到的为准） |
 | Bypass permissions（绕过权限） | `bypassPermissions` | 需在 **Settings → Claude Code**（设置 → Claude Code）中开启 “Allow bypass permissions mode”（允许绕过权限模式）；只建议在沙箱/虚拟机中使用 |
 
 注意：
@@ -84,7 +84,7 @@ Desktop 的权限模式在输入框旁的模式选择器中切换，和 CLI 一�
 
 ![Desktop 权限模式](/images/screenshots/31-permission-modes.png)
 
-*示意图：终端风格渲染，概括官方文档中的界面要点，不是 Desktop 真实界面截图*
+*真实界面（Mac · 已打码）：输入框旁权限模式菜单；本机当前可见 手动 / 接受编辑 / 计划 / 绕过权限*
 
 ## 🔌 四、MCP、连接器与插件
 
@@ -139,9 +139,9 @@ Desktop 本地 MCP 服务器配置在 `claude_desktop_config.json`：
 - 文件路径参数请使用**绝对路径**
 - 不要把真实密钥提交到 Git 仓库
 
-![在 claude_desktop_config.json 中添加 MCP](/images/screenshots/31-desktop-config-mcp.png)
+![Settings → 开发者：本地 MCP 服务器](/images/screenshots/31-desktop-config-mcp.png)
 
-*示意图：终端风格渲染，密钥为占位符 sk-xxxx*
+*真实界面（Mac）：设置 → 开发者（Developer）→ 本地 MCP 服务器；可点「编辑配置」打开 `claude_desktop_config.json`*
 
 ### 4.4 Desktop 与 CLI 的 MCP 关系
 
@@ -164,18 +164,18 @@ claude mcp add-from-claude-desktop -s user    # 导入到用户作用域
 不想手写 JSON，可以用图形化方式：
 
 - **连接器（Connectors）**：点输入框旁 **+** → **Add connectors**（添加连接器；旧版界面为 Connectors → Browse connectors / 浏览连接器）；在 **Settings > Connectors**（设置 > 连接器）中管理或断开
-- **插件（Plugins）**：点 **+** → **Add plugins**（添加插件；旧版为 Plugins → Browse plugins / Manage plugins，即 浏览插件 / 管理插件），插件可以打包 skills、agents、hooks 和 MCP 服务器
+- **插件（Plugins）**：点 **+** → **Add plugins** / **添加插件…**（本机菜单文案带省略号；旧版为 Plugins → Browse plugins / Manage plugins，即 浏览插件 / 管理插件），插件可以打包 skills、agents、hooks 和 MCP 服务器
 
 ![输入框旁的 + 菜单](/images/screenshots/31-connectors-plugins.png)
 
-*示意图：终端风格渲染，概括官方文档中的界面要点，不是 Desktop 真实界面截图*
+*真实界面（Mac · 已打码）：+ 菜单含 添加连接器、添加插件…、斜线命令 等*
 
 ## 🖥️ 五、Computer Use（屏幕操作）
 
 Desktop 中 Claude 可以打开应用、操作屏幕（研究预览）：
 
 - 支持 **macOS 与 Windows**，需要 **Pro 或 Max** 订阅（Team / Enterprise 不可用）；macOS 需 14 及以上
-- 开启：**Settings > This computer > System**（设置 > This computer > 系统；“This computer” 在中文界面中未翻译）→ 打开 **Enable computer use**（启用计算机使用）
+- 开启：在 **Settings**（设置）中搜索 **Enable computer use** / **启用计算机使用**（官方文档路径为 Settings > This computer > System；本机 1.34493.1 设置搜索可定位到「一般」下的该项）。打开 **Enable computer use**（启用计算机使用）
 - macOS 需授予 **Accessibility（辅助功能）** 和 **Screen Recording（屏幕录制）** 权限
 - 每个应用首次被操作时会询问 **Allow for this session / Deny**
 - 不同应用有不同权限等级：例如浏览器仅可查看，终端和 IDE 仅可点击
