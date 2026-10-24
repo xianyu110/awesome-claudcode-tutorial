@@ -4,7 +4,7 @@
 
 [![在线阅读](https://img.shields.io/badge/在线阅读-立即访问-blue?logo=github)](https://awesome.claude-opus.top/zh/)
 [![文章数量](https://img.shields.io/badge/文章-212+篇-green.svg)](https://awesome.claude-opus.top/zh/)
-[![结构化章节](https://img.shields.io/badge/章节-30章-blue.svg)](https://github.com/xianyu110/awesome-claudcode-tutorial#%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%95)
+[![结构化章节](https://img.shields.io/badge/章节-31章-blue.svg)](https://github.com/xianyu110/awesome-claudcode-tutorial#%E8%AF%BE%E7%A8%8B%E7%9B%AE%E5%BD%95)
 [![持续更新](https://img.shields.io/badge/状态-持续更新-orange.svg)](https://github.com/xianyu110/awesome-claudcode-tutorial)
 
 > ⭐ 如果这个项目对你有帮助，请给我们一个 Star！
@@ -27,7 +27,7 @@
 这是一套系统化的 Claude Code 学习教程，提供 **两种学习方式**：
 
 1. **📚 文章式学习** - 212+ 篇详细文章，适合查阅和深入学习特定主题
-2. **🎓 课程式学习** - 30 个结构化章节，适合系统学习从入门到精通
+2. **🎓 课程式学习** - 31 个结构化章节，适合系统学习从入门到精通
 
 无论你是 AI 编程新手，还是想深入掌握 Claude Code 的开发者，都能在这里找到适合的学习路径。
 
@@ -86,7 +86,7 @@
 **适合人群**：希望系统学习、循序渐进的初学者和进阶者
 
 - 📂 **位置**：[docs/zh/chapters/](docs/zh/chapters/)
-- 📊 **数量**：30 个章节
+- 📊 **数量**：31 个章节
 - 🎯 **特点**：结构清晰、循序渐进、实战导向
 - 📖 **本地阅读**：克隆仓库后直接查看
 
@@ -134,6 +134,9 @@
 - [29. 高级命令与反模式](docs/zh/chapters/29-advanced-commands.md) - /btw、/compact、Slash Commands、反模式
 - [30. 新版速览：Claude Code 2.1.310](docs/zh/chapters/30-whats-new-2-1-310.md) - 5.5 系列模型、auto 默认模式、已移除命令、新命令 🆕
 
+#### 第七部分：桌面端与图形界面 ⭐ 新增
+- [31. Claude Desktop：图形界面里的 Claude Code](docs/zh/chapters/31-claude-desktop.md) - 安装、Code 标签、权限模式、MCP 配置、连接器/插件、Computer Use、CLI 互通 🆕
+
 ## 🌟 推荐学习路径
 
 ### 初学者路径
@@ -176,7 +179,7 @@
 
 | 指标 | 文章版 | 章节版 |
 |------|--------|--------|
-| 内容数量 | 212+ 篇文章 | 30 个章节 |
+| 内容数量 | 212+ 篇文章 | 31 个章节 |
 | 代码示例 | 300+ | 150+ |
 | 实战案例 | 100+ | 80+ |
 | 总字数 | 20万+ | 18万+ |
@@ -186,7 +189,7 @@
 
 ### 📚 系统完整
 - **10大主题模块**：覆盖 Claude Code 所有核心知识点
-- **212+ 篇文章 + 30 章节**：每个主题都有详细讲解
+- **212+ 篇文章 + 31 章节**：每个主题都有详细讲解
 - **循序渐进**：从基础概念到高级应用，学习路径清晰
 
 ### 💡 实战导向

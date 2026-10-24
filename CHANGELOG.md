@@ -14,6 +14,8 @@
 - 第 25 章：新增官方 `anthropics/claude-code-action@v1` 示例，标注未核实的 `claude check/review` 子命令
 - 第 28 章：修正 `--worktree` 语法
 - 第 09、14 章：标注不存在的 `~/.claude/config.json` 配置
+- 新增第七部分、第 31 章「Claude Desktop：图形界面里的 Claude Code」：安装登录、Code 标签、权限模式对照、`claude_desktop_config.json` MCP 配置、连接器/插件、Computer Use、`--desktop` / `/desktop` 与 CLI 互通（14 张配图：6 张 Mac 真实打码输出 + 8 张示意图）
+- 全部章节补充终端风格配图（真实输出已打码，示意图均已标注）
 
 ## 2026-03-14 - 新增第五部分：企业级应用与最佳实践
 

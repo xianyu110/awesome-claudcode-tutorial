@@ -213,6 +213,8 @@ claude ultrareview
 - [模型配置](https://code.claude.com/docs/en/model-config)
 - [连接 LLM 网关](https://code.claude.com/docs/en/llm-gateway-connect)
 
+下一章：[31. Claude Desktop：图形界面里的 Claude Code](./31-claude-desktop.md)
+
 ---
 
 > 💡 **API 推荐**：[https://tryallapi.com/](https://tryallapi.com/) - 一站式接入各种AI服务，注册即送0.2刀
