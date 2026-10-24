@@ -1,8 +1,15 @@
 # 20. Plugin 系统
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 Plugin 系统让你能够扩展 Claude Code 的功能，集成自定义工具和服务。
 
 ## 🎯 什么是 Plugin？
+
+![/plugin 示意](/images/screenshots/20-plugins.png)
+
+> 📷 示意图
 
 ### 核心概念
 

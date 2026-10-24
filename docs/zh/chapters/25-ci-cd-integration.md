@@ -1,5 +1,6 @@
 # 25. CI/CD 集成 (CI/CD Integration)
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 将 Claude Code 集成到 CI/CD 流水线，实现自动化代码审查、测试和部署。
 
 ## 🔄 CI/CD 概览
@@ -46,7 +47,56 @@
         └──────────────┘
 ```
 
-## 🚀 GitHub Actions 集成
+## ✅ 官方方式：Claude Code GitHub Action
+
+> 📌 **版本说明**：本节已更新至 Claude Code 2.1.310（2026-10-24），来源：[官方 GitHub Actions 文档](https://code.claude.com/docs/en/github-actions)。
+
+> ⚠️ **重要**：本章后面示例中的 `claude check`、`claude review`、`claude security scan` 等子命令**不在当前官方 CLI 参考中**，属于未核实的示意写法，直接运行会失败。在 CI 中请使用下面的官方 Action，或用非交互模式 `claude -p "<提示词>"`（可配合 `--permission-mode dontAsk --allowedTools ...` 精确放行工具）。代码审查可用 `/code-review` 插件或会话中的 `/security-review`。
+
+**快速安装**：在 Claude Code 会话中运行 `/install-github-app`，按引导为仓库安装 GitHub App 并设置密钥。
+
+**示例：在 Issue / PR 评论中 @claude 触发（官方示例）**
+
+```yaml
+name: Claude Code
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+jobs:
+  claude:
+    if: contains(github.event.comment.body, '@claude')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+```
+
+![anthropics/claude-code-action@v1 配置示意](/images/screenshots/25-gha-action.png)
+
+> 📷 示意图：密钥放在 GitHub Secrets
+
+- 使用 Claude 订阅时，把 `anthropic_api_key` 换成下面这行（令牌可用 `claude setup-token` 生成）：
+
+  ```yaml
+  claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+  ```
+
+- 密钥务必放在 GitHub Secrets 中，不要写进 workflow 文件
+- 更多现成示例见 [anthropics/claude-code-action/examples](https://github.com/anthropics/claude-code-action/tree/main/examples)
+
+## 🚀 GitHub Actions 集成（⚠️ 以下为未核实的示意写法）
 
 ### 1. 基础 CI 流水线
 
@@ -219,7 +269,7 @@ jobs:
             }
 ```
 
-## 🔧 GitLab CI 集成
+## 🔧 GitLab CI 集成（⚠️ 未核实的示意写法）
 
 ### 基础配置
 
@@ -282,7 +332,7 @@ claude:security:
   allow_failure: true
 ```
 
-## 🐳 Jenkins 集成
+## 🐳 Jenkins 集成（⚠️ 未核实的示意写法）
 
 ### Jenkinsfile 配置
 

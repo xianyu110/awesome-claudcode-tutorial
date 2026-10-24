@@ -1,8 +1,23 @@
 # 29. 高级命令与反模式
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 本章涵盖 Claude Code 的高级命令用法和常见反模式，帮助你避开陷阱、提升效率。
 
 ## 🎯 章节概览
+
+![/btw 示意](/images/screenshots/29-btw.png)
+
+> 📷 示意图
+
+![/compact 示意](/images/screenshots/29-compact.png)
+
+> 📷 示意图
+
+![Slash 命令菜单示意](/images/screenshots/29-slash.png)
+
+> 📷 示意图
 
 ```
 第一部分：高级命令

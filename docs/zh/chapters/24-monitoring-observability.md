@@ -1,8 +1,15 @@
 # 24. 监控与可观测性 (Monitoring & Observability)
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 在生产环境中使用 Claude Code，需要完善的监控和可观测性来确保性能和可靠性。
 
 ## 🎯 可观测性三大支柱
+
+![OpenTelemetry 示意](/images/screenshots/24-otel.png)
+
+> 📷 示意图
 
 ```
                     ┌─────────────────┐

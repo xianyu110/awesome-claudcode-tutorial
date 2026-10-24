@@ -1,8 +1,19 @@
 # 28. 多 Agent 协作
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 多 Agent 协作是 Claude Code 最强大的能力之一，让你同时运行多个 Agent 并行处理任务，大幅提升开发效率。
 
 ## 🎯 为什么需要多 Agent 协作？
+
+![claude -w worktree 示意](/images/screenshots/28-worktree.png)
+
+> 📷 示意图（帮助原文见第 30 章真实节选）
+
+![Agent Teams 示意](/images/screenshots/28-agent-teams.png)
+
+> 📷 示意图
 
 ### 从单 Agent 到多 Agent
 
@@ -58,6 +69,8 @@ claude --worktree
 # 3. 将工作目录切换到新的 worktree
 # 4. 完成后可以选择保留或删除
 ```
+
+也可以直接指定 worktree 名称（官方示例）：`claude -w feature-auth`，worktree 会创建在 `<repo>/.claude/worktrees/<name>`。
 
 ### Worktree 与多 Agent 的关系
 
@@ -507,9 +520,9 @@ Agent 们完成工作后通知你
 目标：为电商平台添加商品推荐功能
 
 Step 1: 创建 Worktrees
-$ claude --worktree name=recommendation-engine
-$ claude --worktree name=api-endpoints
-$ claude --worktree name=frontend-ui
+$ claude --worktree recommendation-engine
+$ claude --worktree api-endpoints
+$ claude --worktree frontend-ui
 
 Step 2: 启动多个 Agent
 Agent 1（recommendation-engine worktree）:

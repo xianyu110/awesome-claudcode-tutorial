@@ -1,5 +1,8 @@
 # 12. 恢复历史会话 (Resume)
 
+> 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
+
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 Resume 功能让你能够恢复之前的对话会话，继续未完成的工作。
 
 ## 🎯 什么是 Resume？
@@ -43,15 +46,13 @@ Claude: "欢迎回来！我们正在重构认证模块，
 
 ### 会话存储位置
 
+根据[官方 Sessions 文档](https://code.claude.com/docs/en/sessions)，会话记录以 JSONL 格式保存在：
+
 ```
-~/.claude/
-├── sessions/
-│   ├── session-2024-03-15-001.json
-│   ├── session-2024-03-15-002.json
-│   ├── session-2024-03-16-001.json
-│   └── session-2024-03-16-002.json
-└── current-session.json
+~/.claude/projects/<project>/<session-id>.jsonl
 ```
+
+其中 `<project>` 是工作目录路径（非字母数字字符替换为 `-`）。文件格式是内部格式，会随版本变化，脚本请改用 `/export` 或 `claude -p --output-format json`。默认保留 30 天，可通过 `settings.json` 中的 `cleanupPeriodDays` 修改。
 
 ### 会话包含的内容
 
@@ -240,29 +241,50 @@ Claude:
 ### 基本语法
 
 ```bash
-# 恢复上一个会话
-resume
+# 继续当前目录最近一次会话
+claude --continue        # 简写 claude -c
 
-# 恢复指定会话
-resume <session-id>
+# 打开会话选择器
+claude --resume          # 简写 claude -r
 
-# 恢复 N 个会话前的
-resume -n 3
+# 按会话 ID 或名称恢复
+claude --resume <session-id-或名称>
 
-# 恢复特定日期的会话
-resume --date 2024-03-14
+# 恢复时另起一个新会话 ID（分叉，不覆盖原会话）
+claude --resume abc123 --fork-session
 
-# 恢复特定项目的会话
-resume --project my-app
+# 启动时给会话命名，之后可用名称恢复
+claude -n auth-refactor
+claude --resume auth-refactor
 
-# 交互式选择
-resume --interactive
+# 只看与某个 PR 关联的会话
+claude --from-pr 123
 ```
+
+![claude -c 继续最近会话](/images/screenshots/12-continue.png)
+
+> 📷 真实输出（claude --help 节选，Claude Code 2.1.310）
+
+![claude -r / --fork-session 恢复与分叉](/images/screenshots/12-resume.png)
+
+> 📷 真实输出（claude --help 节选，Claude Code 2.1.310）
+
+![/export 与 JSON 摘要示意](/images/screenshots/12-export.png)
+
+> 📷 示意图
+
+在会话中也可以使用：
+
+- `/resume [会话]`：按 ID/名称恢复，或打开会话选择器
+- `/rename [名称]`：重命名当前会话
+- `/branch [名称]`：从当前位置创建对话分支，原对话保留，可用 `/resume` 回去
+
+> ⚠️ 旧版教程中的 `resume -n 3`、`resume --date`、`resume --project`、`resume --interactive` 写法在当前官方文档中不存在。
 
 ### 交互式选择
 
 ```
-你: resume -i
+你: /resume
 
 Claude:
 🔄 选择要恢复的会话
@@ -281,67 +303,32 @@ Claude:
 
 ## 📊 会话管理
 
-### 查看会话列表
+### 查看与搜索会话
 
-```bash
-claude sessions list
-```
-
-```
-📚 会话列表
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-最近 10 个会话：
-
-ID              时间          项目    消息数    状态
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-s-001        今天 09:00    my-app    45      进行中
-s-002        今天 07:30    docs      12      完成
-s-003        昨天 18:00    my-app    67      完成
-s-004        昨天 14:00    blog      34      完成
-s-005        昨天 09:00    test      8       完成
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-### 搜索会话
-
-```bash
-# 按项目搜索
-claude sessions search --project my-app
-
-# 按关键词搜索
-claude sessions search --keyword "认证"
-
-# 按日期范围搜索
-claude sessions search --from 2024-03-10 --to 2024-03-15
-```
+运行 `claude --resume`（或会话中的 `/resume`）打开会话选择器，在其中浏览、搜索最近的会话。
 
 ### 删除会话
 
-```bash
-# 删除特定会话
-claude sessions delete s-002
-
-# 删除所有已完成的会话
-claude sessions cleanup --status completed
-
-# 删除 7 天前的会话
-claude sessions cleanup --older-than 7d
-```
+会话记录会按保留规则自动清理（默认 30 天，`cleanupPeriodDays` 可调）。想立即清除某个项目的会话记录和相关状态，可运行 `claude purge`（详见[官方文档](https://code.claude.com/docs/en/claude-directory#clear-local-data)）。
 
 ### 导出会话
 
 ```bash
-# 导出为 JSON
-claude sessions export s-001 --format json --output session.json
+# 在会话中：打开菜单，复制到剪贴板或保存为纯文本文件
+/export
 
-# 导出为 Markdown
-claude sessions export s-001 --format markdown --output session.md
-
-# 导出所有会话
-claude sessions export-all --output sessions-archive.zip
+# 直接写入文件
+/export session.txt
 ```
+
+需要结构化数据时，用非交互模式：
+
+```bash
+# 向已有会话追问，并以 JSON 获取结果（官方示例）
+claude -p --resume <session-id> --output-format json "summarize what we changed" | jq -r '.result'
+```
+
+> ⚠️ 旧版教程中的 `claude sessions list/search/delete/cleanup/export/export-all` 子命令在当前官方 CLI 参考中不存在，请改用上面的方式。
 
 ## 🎯 最佳实践
 
@@ -410,13 +397,11 @@ Claude:
 ### 会话共享
 
 ```bash
-# 导出会话
-claude sessions export s-001 --output share.json
-
-# 分享给团队成员
-# 队友可以导入
-claude sessions import share.json
+# 在会话中导出为文本文件，再分享给队友
+/export share.txt
 ```
+
+> ⚠️ 旧版教程中的 `claude sessions export/import` 在当前官方文档中不存在；目前官方没有“导入会话”的命令。
 
 ### 会话合并
 
@@ -470,6 +455,8 @@ B: 更安全（可撤销）
 
 ### 会话保留策略
 
+> ⚠️ **未核实**：下面的配置文件路径和字段在当前官方文档中找不到（Claude Code 的配置文件是 `~/.claude/settings.json` 和项目 `.claude/settings.json`，而不是 `config.json`），仅作思路示意，请勿直接照搬。
+
 ```json
 // ~/.claude/config.json
 {
@@ -484,6 +471,8 @@ B: 更安全（可撤销）
 ```
 
 ### 会话加密
+
+> ⚠️ **未核实**：下面的会话加密配置在当前官方文档中找不到，仅作思路示意。
 
 ```json
 {

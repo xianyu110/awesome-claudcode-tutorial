@@ -1,8 +1,15 @@
 # 26. Computer Use（屏幕操作）
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 Computer Use 让 Claude Code 能够"看到"你的屏幕并操控鼠标和键盘，就像一个远程桌面助手。
 
 ## 🎯 什么是 Computer Use？
+
+![Computer Use 示意](/images/screenshots/26-computer-use.png)
+
+> 📷 示意图 · GUI 待补
 
 ### 核心概念
 

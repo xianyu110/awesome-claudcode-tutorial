@@ -1,6 +1,11 @@
 # 06. 使用规划模式 (Plan Mode)
 
+
+> 📷 **截图说明**：本章配图为终端风格示意图，密钥均已打码。
+
 规划模式是处理复杂任务的强大工具，让你在执行前就能看到完整的计划。
+
+> 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
 
 ## 🎯 什么是规划模式？
 
@@ -21,25 +26,41 @@
 ### 方式一：启动时启用
 
 ```bash
-claude --plan-mode
+claude --permission-mode plan
 ```
+
+![规划模式启动示意](/images/screenshots/04-plan-mode.png)
+
+> 📷 示意图
+
+![Shift+Tab 切换权限模式](/images/screenshots/04-shift-tab.png)
+
+> 📷 示意图
 
 ### 方式二：快捷键切换
 
-在会话中按 **两次 `Shift+Tab`**：
-- 默认模式 ⇄ 规划模式
+在会话中按 **`Shift+Tab`** 循环切换权限模式，直到状态栏显示 `plan mode on`：
+- 循环顺序：auto → default（Manual）→ acceptEdits → plan → 回到 auto
+
+也可以只对一条提示使用规划模式：在提示前加 `/plan`，例如 `/plan 重构认证模块`。
 
 ### 方式三：配置文件
 
-```bash
-# ~/.claude/config.json
-{
-  "planModeRequired": true
-}
+在 `~/.claude/settings.json`（全局）或项目的 `.claude/settings.json` 中设置：
 
-# 或项目级别
-echo "planModeRequired: true" > .claude/config.yml
+```json
+{
+  "permissions": {
+    "defaultMode": "plan"
+  }
+}
 ```
+
+> ⚠️ 旧版教程中的 `--plan-mode` 参数、`planModeRequired` 字段和 `.claude/config.yml` 在当前官方文档中不存在。
+>
+> 💡 计划生成后按 `Ctrl+G` 可在编辑器中直接修改计划；计划文件默认保存在 `~/.claude/plans/`（可用 `plansDirectory` 修改）。
+>
+> ℹ️ 旧版的 `/ultraplan` 命令已在 v2.1.222 移除，请直接使用规划模式。
 
 ## 📋 规划模式工作流程
 
@@ -522,16 +543,19 @@ Claude: [读取计划文件]
 
 ### 在配置文件中设置
 
-```yaml
-# .claude/config.yml
-planModeRequired: true
+在项目的 `.claude/settings.json` 中把默认模式设为 plan，团队成员在该项目启动的终端会话都会从规划模式开始：
+
+```json
+{
+  "permissions": {
+    "defaultMode": "plan"
+  }
+}
 ```
 
-### 环境变量
+组织范围可以在[托管设置](https://code.claude.com/docs/en/managed-settings)中设置。
 
-```bash
-export CLAUDE_PLAN_MODE=1
-```
+> ⚠️ 旧版教程中的 `CLAUDE_PLAN_MODE` 环境变量在当前官方文档中不存在。
 
 ### 适用场景
 

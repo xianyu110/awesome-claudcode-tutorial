@@ -1,5 +1,8 @@
 # 05. 执行终端命令 (Bash)
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 Claude Code 不仅能读写文件，还能执行终端命令，这让它成为一个完整的开发助手。
 
 ## 🎯 为什么要用 Claude Code 执行命令？
@@ -14,6 +17,14 @@ Claude Code 不仅能读写文件，还能执行终端命令，这让它成为�
 | 重复操作 | 批量自动化 |
 
 ## 📝 基础用法
+
+![Bash 工具执行示意](/images/screenshots/05-bash-tool.png)
+
+> 📷 示意图
+
+![Git 工作流示意](/images/screenshots/05-git-workflow.png)
+
+> 📷 示意图
 
 ### 简单命令执行
 

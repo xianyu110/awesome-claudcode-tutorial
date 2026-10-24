@@ -1,5 +1,10 @@
 # 07. 跳过所有权限检测 (dangerously-skip-permissions)
 
+![claude --help bypass 真实节选](/images/screenshots/07-help-bypass.png)
+
+> 📷 真实输出（Claude Code 2.1.310）
+
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 ## ⚠️ 重要警告
 
 `--dangerously-skip-permissions` 是一个高级选项，适合以下场景：
@@ -8,6 +13,10 @@
 - 执行经过验证的重复性任务
 
 **不推荐在生产环境或关键项目中使用！**
+
+> 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
+
+> 🆕 **新版提示**：`--dangerously-skip-permissions` 等价于 `--permission-mode bypassPermissions`。官方建议只在**无外网的容器、虚拟机或 dev container** 等隔离环境中使用。如果只是想少点确认，优先考虑 auto 模式（v2.1.283 起交互式会话默认启用）或 `acceptEdits` 模式，详见 [04. 三种模式详解](./04-modes.md)。
 
 ## 🎯 什么是权限跳过？
 
@@ -37,25 +46,25 @@ $ claude --dangerously-skip-permissions
 # 跳过所有权限检测
 claude --dangerously-skip-permissions
 
-# 简写形式
-claude -y
+# 等价写法
+claude --permission-mode bypassPermissions
 ```
 
 ### 方式二：配置文件
 
+在用户级 `~/.claude/settings.json`（或托管设置）中设置（写在项目 `.claude/settings.json` 中不会生效）：
+
 ```json
-// ~/.claude/config.json
 {
-  "dangerouslySkipPermissions": true
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  }
 }
 ```
 
-### 方式三：环境变量
-
-```bash
-export CLAUDE_SKIP_PERMISSIONS=1
-claude
-```
+> ⚠️ 旧版教程中的 `claude -y` 简写、`~/.claude/config.json` 的 `dangerouslySkipPermissions` 字段和 `CLAUDE_SKIP_PERMISSIONS` 环境变量在当前官方文档中不存在。
+>
+> ℹ️ 即使在此模式下，`deny` 规则依然生效；首次以此模式启动交互会话时会弹出警告对话框要求确认。
 
 ## 📊 权限系统概览
 
@@ -64,8 +73,8 @@ claude
 | 级别 | 命令 | 确认次数 | 安全性 | 适用场景 |
 |------|------|----------|--------|----------|
 | **严格模式** | 默认 | 每个操作 | ⭐⭐⭐⭐⭐ | 生产环境 |
-| **自动批准** | `--auto-approve` | 0 | ⭐⭐⭐ | 信任的只读任务 |
-| **规划模式** | `--plan-mode` | 1次 | ⭐⭐⭐⭐⭐ | 大型重构 |
+| **自动模式** | `--permission-mode auto` | 少量 | ⭐⭐⭐ | 长任务、日常开发 |
+| **规划模式** | `--permission-mode plan` | 1次 | ⭐⭐⭐⭐⭐ | 大型重构 |
 | **跳过权限** | `--dangerously-skip-permissions` | 0 | ⭐ | 沙盒/测试 |
 
 ### 权限类型详解
@@ -162,8 +171,12 @@ Claude:
 ### 场景 2: 批量代码格式化
 
 ```bash
-claude -y
+claude --dangerously-skip-permissions
 ```
+![bypassPermissions 警告示意](/images/screenshots/07-bypass-warning.png)
+
+> 📷 示意图：仅限隔离环境
+
 
 ```
 你: 格式化项目中所有的 JavaScript 文件，
@@ -213,7 +226,7 @@ Claude:
 ### 场景 4: 依赖升级
 
 ```bash
-claude -y
+claude --dangerously-skip-permissions
 ```
 
 ```
@@ -266,22 +279,35 @@ git reset --hard HEAD~1
 docker run -it --rm \
   -v $(pwd):/app \
   -w /app \
-  node:18 \
-  npx -y claude-code --dangerously-skip-permissions
+  node:22 \
+  npx -y @anthropic-ai/claude-code --dangerously-skip-permissions
 ```
 
 ### 3. 限制操作范围
 
 ```bash
-# 只允许读取操作
-claude --auto-approve-reads
+# 只预先放行指定工具（其余仍需确认）
+claude --allowedTools "Read" "Bash(npm test)"
 
-# 只允许特定目录
-claude --allowed-dirs src/
-
-# 排除敏感文件
-claude --exclude-patterns "*.env","*.key"
+# CI/脚本：只允许白名单工具，其余一律拒绝
+claude -p "run the test suite" --permission-mode dontAsk --allowedTools "Bash(npm test)" "Read"
 ```
+
+![CI 中 dontAsk + allowedTools 示意](/images/screenshots/07-dontask-ci.png)
+
+> 📷 真实非交互输出（Claude Code 2.1.310；CI 写法示意）
+
+排除敏感文件可在 `settings.json` 中配置 `deny` 规则（即使在 bypassPermissions 模式下也生效）：
+
+```json
+{
+  "permissions": {
+    "deny": ["Read(./.env)", "Read(./secrets/**)"]
+  }
+}
+```
+
+> ⚠️ 旧版教程中的 `--auto-approve-reads`、`--allowed-dirs`、`--exclude-patterns` 参数在当前官方文档中不存在。
 
 ### 4. 保险丝机制
 
@@ -333,14 +359,14 @@ git diff --stat
 2. **配合 Git 使用**
    ```bash
    git commit -am "Checkpoint"
-   claude -y
+   claude --dangerously-skip-permissions
    git diff  # 审查更改
    ```
 
 3. **限制操作类型**
    ```bash
-   # 只允许读取和编辑，不允许删除
-   claude --skip-read-permissions --skip-edit-permissions
+   # 只自动接受读取和文件编辑，其他操作仍需确认
+   claude --permission-mode acceptEdits
    ```
 
 4. **设置时间限制**
@@ -363,13 +389,13 @@ git diff --stat
 claude --dangerously-skip-permissions
 # 效果：无任何确认，直接执行
 
-# 2. 自动批准模式
-claude --auto-approve
-# 效果：无确认，但保持安全检查
+# 2. 自动模式
+claude --permission-mode auto
+# 效果：大多数操作无需确认，由后台分类器做安全检查
 
-# 3. 混合模式
-claude --auto-approve --plan-mode
-# 效果：先看计划，批准后自动执行
+# 3. 先规划后执行
+claude --permission-mode plan
+# 效果：先看计划，批准后按所选方式执行
 ```
 
 ## 📊 实时监控

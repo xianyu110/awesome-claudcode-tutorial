@@ -1,8 +1,15 @@
 # 21. 工作流与最佳实践 (Workflows & Best Practices)
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 掌握 Claude Code 的核心工作模式和业界最佳实践，将极大提升你的开发效率。
 
 ## 🎯 核心工作流
+
+![/workflows 示意](/images/screenshots/21-workflow.png)
+
+> 📷 示意图
 
 ### 1. 代码审查工作流 (Code Review Workflow)
 

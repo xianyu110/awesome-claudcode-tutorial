@@ -1,8 +1,19 @@
 # 18. SubAgent
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 SubAgent 是可以独立运行并返回结果的专用 AI 助手，适合并行处理复杂任务。
 
 ## 🎯 什么是 SubAgent？
+
+![子代理并行示意](/images/screenshots/18-subagents.png)
+
+> 📷 示意图
+
+![.claude/agents 示意](/images/screenshots/18-agents-dir.png)
+
+> 📷 示意图
 
 ### 核心概念
 

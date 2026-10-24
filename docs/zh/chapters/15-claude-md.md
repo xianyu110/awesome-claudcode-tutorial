@@ -1,8 +1,19 @@
 # 15. 项目记忆文件 (CLAUDE.md)
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 CLAUDE.md 是项目的永久记忆，让 Claude Code 跨会话记住项目特定信息。
 
 ## 🎯 什么是 CLAUDE.md？
+
+![CLAUDE.md 示例](/images/screenshots/15-claude-md.png)
+
+> 📷 示意图
+
+![/init 示意](/images/screenshots/15-init.png)
+
+> 📷 示意图
 
 ### 核心概念
 

@@ -1,6 +1,90 @@
 # 16. Hook 系统
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 Hooks 让你在特定事件发生时自动执行自定义脚本。
+
+> 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方 Hooks 文档](https://code.claude.com/docs/en/hooks)为准。
+
+> ⚠️ **重要**：本章后半部分沿用的 `pre-edit` / `post-exec` 等 Hook 名称、`~/.claude/hooks/*.sh` 自动加载方式以及 `~/.claude/config.json` 配置**在当前官方文档中不存在**，仅作思路参考。实际配置请以下面的「官方配置方式」为准。
+
+## ✅ 官方配置方式（2.1.310）
+
+Hook 写在设置文件的 `hooks` 字段中：用户级 `~/.claude/settings.json`，或项目级 `.claude/settings.json`。
+
+### 常用事件
+
+| 事件 | 触发时机 |
+|------|----------|
+| `SessionStart` / `SessionEnd` | 会话开始 / 结束 |
+| `UserPromptSubmit` | 用户提交提示后、Claude 处理前 |
+| `PreToolUse` | 工具调用执行前（可以阻止） |
+| `PermissionRequest` | 工具调用需要权限决定时 |
+| `PostToolUse` | 工具调用成功后 |
+| `PostToolUseFailure` | 工具调用失败后 |
+| `Notification` | Claude Code 发送通知时 |
+| `SubagentStart` / `SubagentStop` | 子代理启动 / 结束 |
+| `Stop` | Claude 完成回复时 |
+| `PreCompact` / `PostCompact` | 上下文压缩前 / 后 |
+
+完整事件列表（30 多种）见[官方文档](https://code.claude.com/docs/en/hooks)。
+
+### 示例：拦截危险的 `rm -rf`（官方示例）
+
+`.claude/settings.json`：
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(rm *)",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/block-rm.sh",
+            "args": []
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+![.claude/settings.json 中的 hooks 配置（官方示例）](/images/screenshots/16-hooks-settings.png)
+
+> 📷 示意图：结构来自官方 Hooks 文档
+
+`.claude/hooks/block-rm.sh`（记得 `chmod +x`，并安装 `jq`）：
+
+```bash
+#!/bin/bash
+# Hook 从 stdin 读取 JSON 输入
+COMMAND=$(jq -r '.tool_input.command')
+
+if echo "$COMMAND" | grep -q 'rm -rf'; then
+  jq -n '{
+    hookSpecificOutput: {
+      hookEventName: "PreToolUse",
+      permissionDecision: "deny",
+      permissionDecisionReason: "Destructive command blocked by hook"
+    }
+  }'
+else
+  exit 0  # 不做决定，走正常权限流程
+fi
+```
+
+- `matcher` 按工具名过滤，支持 `Edit|Write`、`mcp__.*` 这类写法
+- `if` 用权限规则语法进一步缩小范围
+- 在会话中可用 `/hooks` 查看已配置的 Hook
+
+![/hooks 菜单示意](/images/screenshots/16-hooks-menu.png)
+
+> 📷 示意图
+
+> 下文为旧版教程内容，仅供参考思路。
 
 ## 🎯 什么是 Hook？
 

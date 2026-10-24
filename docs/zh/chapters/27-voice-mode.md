@@ -1,8 +1,15 @@
 # 27. Voice Mode（语音模式）
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 Voice Mode 让你用语音与 Claude Code 对话，像和一个真人开发者面对面交流一样。
 
 ## 🎯 什么是 Voice Mode？
+
+![Voice Mode 示意](/images/screenshots/27-voice.png)
+
+> 📷 示意图 · GUI 待补
 
 ### 核心概念
 

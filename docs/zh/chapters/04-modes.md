@@ -1,6 +1,40 @@
 # 04. 三种模式详解
 
+> 📷 **截图说明**：本章配图均为终端风格渲染图；标注「示意图」的表示本环境未真实登录 Anthropic，输出已按官方文档整理并打码。真实密钥不会出现在任何图片中。
 Claude Code 有三种核心权限模式，理解它们的区别对于高效使用至关重要。
+
+> 📌 **版本说明**：本章已更新至 Claude Code 2.1.310（2026-10-24），内容以[官方文档](https://code.claude.com/docs/en/overview)和[官方 CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) 为准。
+
+> 🆕 **新版变化**：当前版本实际提供 **6 种权限模式**，并且自 v2.1.283 起，交互式终端和 VS Code 会话**默认以 auto 模式启动**（`claude -p` 非交互运行自 v2.1.302 起默认为 Manual 模式）。本章仍以最常用的「默认 / 自动 / 规划」三种为主线讲解，完整列表如下（来源：[官方 Permission modes 文档](https://code.claude.com/docs/en/permission-modes)）：
+
+| 模式（配置值） | 无需确认即可执行 | 适合 |
+|------|------|------|
+| `default`（界面中显示为 **Manual**，可写作 `manual`） | 仅读取 | 逐个审查、敏感工作 |
+| `acceptEdits` | 读取、编辑文件、常见文件系统命令（`mkdir`、`touch`、`mv`、`cp` 等） | 边审查边迭代代码 |
+| `plan` | 读取（auto 可用时还包括分类器批准的命令） | 动手前先探索代码库 |
+| `auto` | 全部操作，带后台安全检查 | 长任务、减少确认打扰 |
+| `dontAsk` | 工作目录内读取 + 预先允许的工具，其余一律拒绝 | 锁定的 CI 和脚本 |
+| `bypassPermissions` | 全部操作 | 仅限隔离的容器/虚拟机 |
+
+启动时用 `--permission-mode` 指定模式，例如：
+
+```bash
+claude --permission-mode plan
+claude --permission-mode acceptEdits
+claude --permission-mode auto
+```
+
+![claude --help permission-mode 真实节选](/images/screenshots/04-help-permission-mode.png)
+
+> 📷 真实输出（Claude Code 2.1.310）
+![以 auto 模式启动 Claude Code](/images/screenshots/04-permission-mode-auto.png)
+
+> 📷 示意图
+
+![Shift+Tab 循环切换权限模式](/images/screenshots/04-shift-tab.png)
+
+> 📷 示意图：循环顺序来自官方文档
+
 
 ## 📋 三种模式概览
 
@@ -15,9 +49,19 @@ Claude Code 有三种核心权限模式，理解它们的区别对于高效使�
 ### 启动方式
 
 ```bash
-# 默认就是此模式，无需额外参数
-claude
+# 显式指定 Manual（default）模式
+claude --permission-mode default
 ```
+
+> 💡 v2.1.283 起直接运行 `claude` 默认进入的是 auto 模式；如果希望每次都从逐个确认开始，可在 `~/.claude/settings.json` 中设置：
+>
+> ```json
+> {
+>   "permissions": {
+>     "defaultMode": "default"
+>   }
+> }
+> ```
 
 ### 工作流程
 
@@ -72,15 +116,24 @@ Allow? (Y/n/s):
 ### 启动方式
 
 ```bash
-# 方式 1: 命令行参数
-claude --auto-approve
+# 方式 1: 命令行参数（v2.1.283 起交互式会话默认即为 auto）
+claude --permission-mode auto
 
-# 方式 2: 配置文件
-# ~/.claude/config.json
+# 方式 2: 会话中按 Shift+Tab 循环切换到 auto
+
+# 方式 3: 配置文件 ~/.claude/settings.json
+# 注意：auto 只在用户级 ~/.claude/settings.json（或托管设置）中生效，
+# 写在项目的 .claude/settings.json 里不会生效
 {
-  "autoApprove": true
+  "permissions": {
+    "defaultMode": "auto"
+  }
 }
 ```
+
+> ⚠️ 旧版教程中的 `--auto-approve` 参数和 `~/.claude/config.json` 的 `autoApprove` 字段在当前官方文档中不存在；早期的 `--enable-auto-mode` 参数也已在 v2.1.111 移除。
+>
+> auto 模式需要受支持的模型（官方文档列出 Anthropic API 上的 Opus 4.6+、Sonnet 4.6+、Haiku 5.5 或 Fable 模型；Bedrock 等云厂商上要求更高）。官方提醒：auto 模式能减少确认，但**不保证安全**。管理员可在托管设置中把 `permissions.disableAutoMode` 设为 `"disable"` 来关闭它。
 
 ### 工作流程
 
@@ -133,24 +186,21 @@ Claude: "完成！修复了 3 个测试用例"
 ### 安全使用建议
 
 ```bash
-# 1. 结合使用范围限制
-claude --auto-approve --allow-read-only
+# 1. CI/脚本中用 dontAsk + 精确白名单（官方文档示例）
+claude -p "run the test suite" --permission-mode dontAsk --allowedTools "Bash(npm test)" "Read"
 
-# 2. 先用规划模式审查，再用自动模式执行
-# 步骤 1: 规划
-claude --plan-mode
+# 2. 先用规划模式审查，再执行
+claude --permission-mode plan
 > "帮我重构这个模块"
-> [审查计划]
-
-# 步骤 2: 执行
-claude --auto-approve
-> "按我们刚才讨论的计划执行"
+> [审查计划，批准后会自动切换到所选的执行模式]
 ```
 
 
 ### Auto Mode 的安全机制：AI 分类器
 
-Auto Mode 不是简单的"全部放行"，它内置了一套 AI 安全分类器来拦截危险操作。
+Auto Mode 不是简单的"全部放行"：根据官方文档，auto 模式下会由第二个模型（分类器）在后台审查每个操作。
+
+> ⚠️ **未核实**：下面的两阶段结构、误报率/漏检率等数字来自早期第三方资料，当前官方文档中没有这些数据，仅供参考。
 
 #### 两阶段分类机制
 
@@ -230,17 +280,23 @@ Auto Mode 不是简单的"全部放行"，它内置了一套 AI 安全分类器�
 
 ```bash
 # 方式 1: 命令行参数
-claude --plan-mode
+claude --permission-mode plan
 
-# 方式 2: 在会话中快速切换
-# 按两次 Shift+Tab
+# 方式 2: 在会话中按 Shift+Tab 循环切换
+# 顺序：auto → default(Manual) → acceptEdits → plan → ...
 
-# 方式 3: 配置文件
-# ~/.claude/config.json
+# 方式 3: 只对一条提示使用规划模式
+/plan 帮我把这个应用迁移到 TypeScript
+
+# 方式 4: 配置文件 ~/.claude/settings.json 或项目 .claude/settings.json
 {
-  "planModeRequired": true
+  "permissions": {
+    "defaultMode": "plan"
+  }
 }
 ```
+
+> 💡 计划生成后可按 `Ctrl+G` 在编辑器中直接修改计划。
 
 ### 工作流程
 
@@ -298,11 +354,11 @@ Claude: [执行计划]
 
 ### 计划文件
 
-规划模式会生成计划文件：
+规划模式会把计划文件保存在 `~/.claude/plans/` 目录（可通过 `plansDirectory` 设置修改）：
 
 ```
 ~/.claude/plans/
-└── 2024-03-15-migrate-to-typescript.md
+└── <计划文件>.md
 ```
 
 计划文件包含：
@@ -341,8 +397,12 @@ Claude: [执行计划]
 **步骤 1: 规划模式**
 
 ```bash
-claude --plan-mode
+claude --permission-mode plan
 ```
+![规划模式启动与计划示意](/images/screenshots/04-plan-mode.png)
+
+> 📷 示意图
+
 
 ```
 你: "我想添加用户认证功能，包括登录、注册、密码重置"
@@ -355,12 +415,9 @@ Claude: [调整计划]
 你: "批准！"
 ```
 
-**步骤 2: 切换到自动模式执行**
+**步骤 2: 批准计划后执行**
 
-```bash
-# 新开一个终端
-claude --auto-approve
-```
+批准计划时可以选择执行方式，批准后会话会自动退出规划模式并开始修改代码；也可以按 `Shift+Tab` 切到 auto 模式再继续：
 
 ```
 你: "按照刚才的计划执行认证功能实现"
@@ -402,25 +459,27 @@ claude --auto-approve
 
 ## 💡 高级技巧
 
-### 1. 混合使用
+### 1. 自动接受文件编辑
 
 ```bash
-# 读取操作自动，修改操作确认
-claude --auto-approve-reads
+# 读取、编辑文件和常见文件系统命令自动执行，其他操作仍需确认
+claude --permission-mode acceptEdits
 ```
 
-### 2. 按命令类型设置
+### 2. 用白名单预先放行特定命令
 
 ```bash
-# bash 命令自动，文件修改确认
-claude --auto-approve-bash
+# 只放行指定工具，其余仍按当前模式处理
+claude --allowedTools "Bash(npm test)" "Read"
 ```
+
+也可以在会话中用 `/permissions` 管理允许/拒绝规则，或运行 `/fewer-permission-prompts` 让 Claude 根据历史记录建议白名单。
 
 ### 3. 临时切换模式
 
-在会话中按 `Shift+Tab` 两次：
-- 从默认模式 → 规划模式
-- 从规划模式 → 默认模式
+在会话中按 `Shift+Tab` 循环切换：
+- 从 auto 开始，第一次按切到 default（Manual）
+- 之后依次为 default → acceptEdits → plan → 回到 auto
 
 ### 4. 计划复用
 
@@ -429,7 +488,7 @@ claude --auto-approve-bash
 cat ~/.claude/plans/2024-03-15-*.md
 
 # 让 Claude 执行已有计划
-claude --auto-approve
+claude --permission-mode acceptEdits
 > "执行这个计划：[粘贴计划内容]"
 ```
 
@@ -437,20 +496,26 @@ claude --auto-approve
 
 ### 生产环境
 
-```bash
-# 始终使用规划模式
-export CLAUDE_DEFAULT_MODE="plan"
+在项目的 `.claude/settings.json` 中设置默认模式（终端会话会遵守除 `auto` 和 `bypassPermissions` 以外的值）：
 
-# 或在项目配置中强制
-echo "planModeRequired: true" > .claude/config.yml
+```json
+{
+  "permissions": {
+    "defaultMode": "plan"
+  }
+}
 ```
+
+组织范围可在[托管设置](https://code.claude.com/docs/en/managed-settings)中设置 `permissions.defaultMode`。
 
 ### 测试环境
 
 ```bash
 # 可以使用自动模式
-export CLAUDE_DEFAULT_MODE="auto"
+claude --permission-mode auto
 ```
+
+> ⚠️ 旧版教程中的 `CLAUDE_DEFAULT_MODE` 环境变量和 `.claude/config.yml` 在当前官方文档中不存在，请改用 `permissions.defaultMode`。
 
 ### 敏感操作
 
@@ -468,6 +533,7 @@ export CLAUDE_DEFAULT_MODE="auto"
 ## 🔗 相关资源
 
 - [权限模式官方文档](https://code.claude.com/docs/zh-CN/permissions)
+- [Permission modes（英文，最新）](https://code.claude.com/docs/en/permission-modes)
 - [最佳实践指南](https://code.claude.com/docs/zh-CN/workflows)
 
 

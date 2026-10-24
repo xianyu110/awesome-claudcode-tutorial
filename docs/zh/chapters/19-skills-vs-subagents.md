@@ -1,8 +1,15 @@
 # 19. Skills vs SubAgent 的区别
 
+
+> 📷 **截图说明**：本章配图含终端风格图。标注「真实输出」的来自本机 Claude Code 2.1.310（已打码）；标注「示意图」的未能非交互复现。GUI（VS Code/JetBrains/Desktop）待补。
+
 理解何时使用 Skills、何时使用 SubAgent，对于高效完成任务至关重要。
 
 ## 🆚 快速对比
+
+![Skills vs Subagents 示意](/images/screenshots/19-compare.png)
+
+> 📷 示意图
 
 | 特性 | Skills | SubAgent |
 |------|--------|----------|

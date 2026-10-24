@@ -86,6 +86,11 @@ export function generateChapterSidebar(locale: string): SidebarItem[] {
       zh: '第六部分：高级能力与多 Agent 协作 ⭐',
       tw: '第六部分：高級能力與多 Agent 協作 ⭐',
       en: 'Part 6: Advanced Capabilities & Multi-Agent Collaboration ⭐'
+    },
+    7: {
+      zh: '第七部分：桌面端与图形界面 ⭐',
+      tw: '第七部分：桌面端與圖形介面 ⭐',
+      en: 'Part 7: Desktop App & GUI ⭐'
     }
   }
 
@@ -106,7 +111,7 @@ export function generateChapterSidebar(locale: string): SidebarItem[] {
       sidebar.push({
         text: sectionTitle,
         items: sections.get(section)!,
-        collapsed: section !== 5 && section !== 6 // 第5、6部分默认展开
+        collapsed: section !== 5 && section !== 6 && section !== 7 // 第5、6、7部分默认展开
       })
     })
 
