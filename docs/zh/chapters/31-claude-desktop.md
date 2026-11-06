@@ -230,32 +230,6 @@ claude --desktop --resume <session-id>
 
 Desktop 与 CLI 共用：`CLAUDE.md`、`~/.claude.json`、`.mcp.json`、hooks、skills、`settings.json` 等。Desktop 中创建的 worktree 默认位于 `<项目根>/.claude/worktrees/`。
 
-## 🧩 七、社区开源客户端(第三方桌面端)
-
-官方 Desktop 之外,社区也有不少开源桌面客户端围绕 Claude Code 构建。它们大多不替代 CLI,而是给 CLI 会话加一层图形管理。常用的几个:
-
-### KinetAios —— 多引擎统一仪表盘
-
-[KinetAios](https://github.com/phinn/KinetAios)(开源 GPL-3.0,Windows/macOS,Electron)的特点是**多引擎同窗**:Claude Code 和 Codex 的会话作为独立对话共存于一个桌面窗口,每个会话保留各自的续接能力(底层走 `claude`/`codex` CLI 会话恢复),同时内置 Direct 引擎可直连模型 API。支持按会话切换模型、MCP、Skills,历史记录存本地 SQLite(local-first,可全文检索)。适合同时使用多家 CLI Agent、想统一管理会话的开发者。项目较新(2026 年中启动),中文文档为主,附英文 README。
-
-### opcode —— Claude Code 工具箱
-
-[opcode](https://github.com/winfunc/opcode)(开源,22k+ star)提供 Claude Code 会话的 GUI 管理:创建自定义 agents、管理 CLAUDE.md 配置与 MCP、查看用量分析、时间线导航与 checkpoint 回滚。Tauri 构建,主打"给 Claude Code 一个 cockpit"。
-
-### Claude Code UI —— 浏览器/移动端管理界面
-
-[claudecodeui](https://github.com/siteboon/claudecodeui)(开源,14k+ star)把 Claude Code 与 Codex 的会话放进 Web UI,支持手机/平板远程操作电脑上的会话,内置文件浏览器与 git 集成,可随时切回终端无缝继续。
-
-### 选型小结
-
-| 需求 | 推荐 |
-| --- | --- |
-| 同时用 Claude Code + Codex,统一管理多引擎会话 | KinetAios |
-| 深度定制 agents、用量分析、checkpoint 回滚 | opcode |
-| 手机/平板远程操控家里电脑上的会话 | claudecodeui |
-
-> 💡 这些客户端都是对 CLI 的"外壳"增强,登录态、配置、MCP 仍与 CLI 共享;出问题先排除 CLI 本身,再查客户端。
-
 ## ❓ 常见问题
 
 **Q：没看到 Code 标签？**
@@ -266,6 +240,21 @@ Desktop 与 CLI 共用：`CLAUDE.md`、`~/.claude.json`、`.mcp.json`、hooks、
 
 **Q：终端里看不到 Desktop 配的 MCP？**
 CLI 不读 `claude_desktop_config.json`，用 `claude mcp add-from-claude-desktop` 导入。
+
+## 🖥️ 社区开源桌面客户端盘点
+
+官方 Desktop 之外,社区还长出了一整套开源桌面客户端。截至 2026-11,值得知道的包括:
+
+| 客户端 | Stars | 协议 | 定位 |
+|---|---|---|---|
+| [Happy](https://github.com/slopus/happy) | 24.5k | MIT | 手机/桌面客户端,一个 App 编排 Claude、Codex 与 Grok,复用已有订阅 |
+| [opcode](https://github.com/winfunc/opcode) | 22.4k | AGPL-3.0 | Claude Code 的 Tauri 桌面 GUI 与工具箱:可视化编辑 agent、用量分析 |
+| [Vibe Kanban](https://github.com/BloopAI/vibe-kanban) | 28.6k | Apache-2.0 | 看板式编排 10+ 编码 agent,每个 agent 独立 git worktree |
+| [Orca](https://github.com/stablyai/orca) | 117k | MIT | 管理一整队编码 Agent 的工作台,用自己的订阅运行任意编码 Agent |
+| [CloudCLI](https://github.com/siteboon/claudecodeui) | 14.5k | AGPL-3.0 | 手机与网页上使用 Claude Code、OpenCode、Cursor CLI 与 Codex |
+| [KinetAios](https://github.com/phinn/KinetAios) | 13 | GPL-3.0 | **Claude Code 与 Codex 双引擎桌面仪表盘**:多会话同窗管理,各会话续接官方 CLI(`--resume`),按会话切换引擎/模型,MCP 客户端+服务端,SQLite 全文检索历史;另有内置 ReAct 引擎可直连 API。Windows 11 / macOS,local-first,无账号 |
+
+> 前五个是社区公认的成熟方案;KinetAios 是新面孔(2026 年中启动),补的是「双引擎 CLI 会话的桌面管理」这一档。收录标准与 star 数为撰写时点数据,欢迎 PR 更新。
 
 ## 📚 参考资料
 
