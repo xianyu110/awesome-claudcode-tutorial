@@ -254,6 +254,7 @@ cd awesome-claudcode-tutorial
 - [Claude 中文社区](https://www.claude-cn.org)
 - [Claude Code 国内使用指南](https://github.com/claude-code-chinese/claude-code-guide)
 - [B站实战教程](https://www.bilibili.com/video/BV1KzYQzWEPx/)
+- [AICDKS 教程中心](https://aicdks.com/guides) - 免费中文教程：Claude Code / Codex 国内安装配置、CC Switch 多供应商切换、常见报错排查、MCP 入门
 
 ### API 服务
 - **MaynorAI API服务**：https://tryallapi.com/ - 国内直连，稳定可靠
