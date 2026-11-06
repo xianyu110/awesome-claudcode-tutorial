@@ -241,6 +241,21 @@ Desktop 与 CLI 共用：`CLAUDE.md`、`~/.claude.json`、`.mcp.json`、hooks、
 **Q：终端里看不到 Desktop 配的 MCP？**
 CLI 不读 `claude_desktop_config.json`，用 `claude mcp add-from-claude-desktop` 导入。
 
+## 🖥️ 社区开源桌面客户端盘点
+
+官方 Desktop 之外,社区还长出了一整套开源桌面客户端。截至 2026-11,值得知道的包括:
+
+| 客户端 | Stars | 协议 | 定位 |
+|---|---|---|---|
+| [Happy](https://github.com/slopus/happy) | 24.5k | MIT | 手机/桌面客户端,一个 App 编排 Claude、Codex 与 Grok,复用已有订阅 |
+| [opcode](https://github.com/winfunc/opcode) | 22.4k | AGPL-3.0 | Claude Code 的 Tauri 桌面 GUI 与工具箱:可视化编辑 agent、用量分析 |
+| [Vibe Kanban](https://github.com/BloopAI/vibe-kanban) | 28.6k | Apache-2.0 | 看板式编排 10+ 编码 agent,每个 agent 独立 git worktree |
+| [Orca](https://github.com/stablyai/orca) | 117k | MIT | 管理一整队编码 Agent 的工作台,用自己的订阅运行任意编码 Agent |
+| [CloudCLI](https://github.com/siteboon/claudecodeui) | 14.5k | AGPL-3.0 | 手机与网页上使用 Claude Code、OpenCode、Cursor CLI 与 Codex |
+| [KinetAios](https://github.com/phinn/KinetAios) | 13 | GPL-3.0 | **Claude Code 与 Codex 双引擎桌面仪表盘**:多会话同窗管理,各会话续接官方 CLI(`--resume`),按会话切换引擎/模型,MCP 客户端+服务端,SQLite 全文检索历史;另有内置 ReAct 引擎可直连 API。Windows 11 / macOS,local-first,无账号 |
+
+> 前五个是社区公认的成熟方案;KinetAios 是新面孔(2026 年中启动),补的是「双引擎 CLI 会话的桌面管理」这一档。收录标准与 star 数为撰写时点数据,欢迎 PR 更新。
+
 ## 📚 参考资料
 
 - [Desktop quickstart](https://code.claude.com/docs/en/desktop-quickstart)
